@@ -1,0 +1,42 @@
+/* ===================================
+=colors
+=================================== */
+
+:root {
+    /* basic variables */
+    --color-white: #FFFDF8;
+
+    --color-red-100: #8a1d37;
+    --color-red-200: #A32341;
+    --color-red-300: #D72E56; // default
+    --color-red-400: #FD3665;
+    --color-red-500: #FF7595;
+
+    --color-green-100: #033627;
+    --color-green-200: #054F39;
+    --color-green-300: #09835E; // default
+    --color-green-400: #0BA979;
+    --color-green-500: #0ECF94;
+
+    --color-grey-100: #1C1C1C; // default
+    --color-grey-200: #323232;
+    --color-grey-300: #555453; // disabled
+    --color-grey-400: #777674;
+    --color-grey-500: #A4A39F; // sub Text
+
+    
+    /* incident variables */
+    --color-background: var(--color-white);
+    --color-background-dark: var(--color-grey-100);
+    --color-text: var(--color-grey-100);
+    --color-text-light: var(--color-white);
+    --color-text-grey-200: var(--color-grey-200);
+    --color-text-grey-300: var(--color-grey-300);
+    --color-text-grey-400: var(--color-grey-400);
+    --color-text-grey-500: var(--color-grey-500);
+    --color-border: var(--color-grey-100);
+
+    --color-accent: var(--color-green-300);
+
+    --color-red: var(--color-red-300)
+  }
