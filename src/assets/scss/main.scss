@@ -1,6 +1,8 @@
 /* RESET */
 @use "./base/base-reset.scss" as *;
+@use "./base/base-grid.scss" as *;
 @use "./base/base-fonts" as *;
+@use "./base/base-html" as *;
 
 @use "./params/params-colors" as *;
 @use "./params/params-fonts" as *;
