@@ -1,0 +1,39 @@
+<nav class=" mainnav__container grid-layout">
+    <div class="mainnav__content">
+        <div class="burger__container">
+            <label for="menu" class="menu__label">
+                <img src="/assets/medias/imgs/burger.svg" alt="" class="burger__img">
+            </label>
+        </div>
+        <div class="mainnav__imgContainer">
+            <img src="/assets/medias/imgs/mateLogo-topOffset.svg" alt="" class="mainnav__img">
+        </div>
+        <input type="checkbox" class="menu__input" id="menu">
+        <div class="menu__container">
+            <ul class="menu__list">
+                <li class="menu__item {{ 'menu__active' if( page.url == '/' )}}">
+                    <a href="/" class="menu__link">home</a>
+                </li>
+                <li class="menu__item {{ 'menu__active' if '/collections' in page.url }}">
+                    <a href="/collections" class="menu__link">collections</a>
+                </li>
+                <li class="menu__item {{ 'menu__active' if '/about' in page.url }}">
+                    <a href="/about" class="menu__link">about</a>
+                </li>
+                <li class="menu__item {{ 'menu__active' if page.url == "/shop.html"}}">
+                    <a href="/shop" class="menu__link">shop</a>
+                </li>
+            </ul>
+        </div>
+        <div class="slickstreet__container">
+            <label for="slick" class="slick__label slickstreet__label">
+                <p class="slick">slick</p>
+                <div class="slickstreet__img" alt=""></div>
+            </label>
+            <label for="street" class="street__label slickstreet__label">
+                <p class="street">street</p>
+                <div class="slickstreet__img" alt=""></div>
+            </label>
+        </div>
+    </div>
+</nav>

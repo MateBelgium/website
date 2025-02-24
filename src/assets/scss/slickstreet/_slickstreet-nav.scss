@@ -1,0 +1,104 @@
+.slickstreet__container {
+
+    display: none;
+    flex-direction: row;
+
+    gap: var(--spacing-xs);
+
+}
+
+.slickstreet__label {
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: var(--spacing-s);
+
+    font-family: "DMSans", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: var(--fontsize-s);
+    color: var(--color-text-grey-300);
+
+    cursor: pointer;
+}
+
+.slickstreet__img {
+
+    width: 18px;
+    height: 18px;
+
+    background-image: url(../medias/imgs/starSquare.svg);
+    background-size: cover;
+
+}
+
+.slick__input:checked ~ .mainnav__container:has(.slick__label) .slick__label {
+
+    color: var(--color-green-300);
+
+}
+
+.slick__input:checked ~ .mainnav__container:has(.slick__label) .slick__label > .slickstreet__img {
+
+    background-image: url(../medias/imgs/starSquare-green.svg);
+
+}
+
+.street__input:checked ~ .mainnav__container:has(.street__label) .street__label {
+
+    color: var(--color-green-300);
+
+}
+
+.street__input:checked ~ .mainnav__container:has(.street__label) .street__label > .slickstreet__img {
+
+    background-image: url(../medias/imgs/starSquare-green.svg);
+
+}
+
+
+@media all and (min-width: 768px) {
+
+    .slickstreet__container {
+
+        display: flex;
+    
+    }
+
+    
+    .slickstreet__label {
+
+        gap: var(--spacing-m);
+        font-size: var(--fontsize-m);
+
+    }
+    
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .slickstreet__container {
+
+        gap: var(--spacing-m);
+    
+    }
+
+    
+    .slickstreet__label {
+
+        gap: var(--spacing-xs);
+        font-size: var(--fontsize-m);
+
+    }
+    
+    .slickstreet__img {
+
+        width: 24px;
+        height: 24px;
+    }
+
+}

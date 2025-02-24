@@ -57,10 +57,10 @@
 :root {
 
     /* mobile variables */
-    --fontfamily-core: "Sentient";
-    --fontfamily-subtitle: "DMSans";
-    --fontfamily-title: "Panchang";
-    --fontfamily-buttons: "DMSans";    
+    --fontfamily-core: "Sentient", serif;
+    --fontfamily-subtitle: "DMSans", "Arial", sans-serif;
+    --fontfamily-title: "Panchang", "Arial", sans-serif;
+    --fontfamily-buttons: "DMSans", "Arial", sans-serif;    
 
 }
 

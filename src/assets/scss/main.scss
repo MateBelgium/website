@@ -7,4 +7,8 @@
 @use "./params/params-colors" as *;
 @use "./params/params-fonts" as *;
 
+@use "./partials/partials-mainnav" as *;
+
 @use "./pages/pages-index" as *;
+
+@use "./slickstreet/slickstreet-nav" as *;
