@@ -1,0 +1,75 @@
+---
+permalink: index.html
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <div 
+    x-data="shop" 
+    x-effect="syncCart">
+
+    <button
+      x-cloak 
+      @click="openCart()">
+      view cart 
+      <span x-text="totalProducts"></span>
+    </button>
+
+    <h1>Products</h1>
+    {% for item in products %}
+      {% if loop.first %}<ul>{% endif %}
+        <li>
+            <article>
+              <h2>{{ item.name }}</h2>
+              {% if item.image %}
+              <img 
+                src="{{ item.image }}" 
+                alt="{{ item.name }}"
+                width="60"
+                height="60">
+              {% endif %}
+              <p>
+                {{ item.description }}<br />
+                {{ item.priceDisplay }}<br />
+                <button 
+                  x-cloak
+                  @click="addToCart($el.dataset)" 
+                  data-priceid="{{ item.priceId }}"
+                  data-name="{{ item.name }}"
+                  data-quantity="1">
+                  Add to cart
+                </button>
+              </p>
+            </article>
+        </li>
+      {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+
+    <dialog data-cart>
+      <p><span x-text="totalProducts"></span> products in your cart</p>
+      <template 
+        x-for="(item, index) in products" 
+        :key="item.id">
+        <div>
+          <h2 x-text="item.name"></h2>
+          <p>
+            Quantity: 
+            <input 
+              type="number" 
+              min="1" 
+              max="10" 
+              value="item.quantity" 
+              x-model.number="item.quantity" />
+            <button @click="deleteFromCart(item.id)">Delete</button>
+          </p>
+        </div>
+      </template>
+      <p>
+        <button @click="closeCart">Continue Shopping</button>
+        <button x-show="products.length" @click="checkout">Checkout</button>
+      </p>
+    </dialog>
+
+  </div>
+{% endblock %}

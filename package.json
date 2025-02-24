@@ -1,0 +1,39 @@
+{
+  "name": "test-11ty-stripe-cart",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "clear": "rimraf \"./dist\"",
+    "eleventy": "npx @11ty/eleventy --quiet",
+    "server": "npx @11ty/eleventy --serve --quiet",
+    "styles:dev": "lightningcss --bundle --browserslist \"./src/assets/css/main.css\" -o \"./dist/assets/css/main.css\"",
+    "styles:prod": "lightningcss --bundle --minify --browserslist \"./src/assets/css/main.css\" -o \"./dist/assets/css/main.css\"",
+    "scripts:dev": "esbuild --bundle \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
+    "scripts:prod": "esbuild --bundle --minify \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
+    "watch:styles": "onchange \"./src/assets/css/**/*\" -- npm run styles:dev",
+    "watch:scripts": "onchange \"./src/assets/js/**/*\" \"./functions/**/*\" -- npm run scripts:dev",
+    "build": "npm-run-all clear --parallel eleventy scripts:prod styles:prod",
+    "dev": "npm-run-all --parallel server watch:*",
+    "netlify": "npm run dev & npx netlify dev"
+  },
+  "keywords": [],
+  "author": "Jérôme Coupé",
+  "license": "MIT",
+  "description": "A bare bones example of a shopping cart with Eleventy, Alpine and Stripe",
+  "browserslist": ">= 0.5%, not dead",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "alpinejs": "^3.14.8",
+    "dotenv": "^16.4.7",
+    "esbuild": "^0.25.0",
+    "lightningcss-cli": "^1.29.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "rimraf": "^6.0.1",
+    "stripe": "^17.6.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^18.1.0"
+  }
+}
