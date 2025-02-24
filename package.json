@@ -7,11 +7,11 @@
     "clear": "rimraf \"./dist\"",
     "eleventy": "npx @11ty/eleventy --quiet",
     "server": "npx @11ty/eleventy --serve --quiet",
-    "styles:dev": "sass --bundle --browserslist \"./src/assets/css/main.css\" -o \"./dist/assets/css/main.css\" --embed-source-map --source-map-urls=\"absolute\"",
-    "styles:prod": "sass --bundle --minify --browserslist \"./src/assets/css/main.css\" -o \"./dist/assets/css/main.css\" --no-source-map",
+    "styles:dev": "sass \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\" --embed-source-map --source-map-urls=\"absolute\"",
+    "styles:prod": "sass \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\" --no-source-map",
     "scripts:dev": "esbuild --bundle \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
     "scripts:prod": "esbuild --bundle --minify \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
-    "watch:styles": "onchange \"./src/assets/css/**/*\" -- npm run styles:dev",
+    "watch:styles": "onchange \"./src/assets/scss/**/*\" -- npm run styles:dev",
     "watch:scripts": "onchange \"./src/assets/js/**/*\" \"./functions/**/*\" -- npm run scripts:dev",
     "build": "npm-run-all clear --parallel eleventy scripts:prod styles:prod",
     "dev": "npm-run-all --parallel server watch:*",
@@ -31,8 +31,8 @@
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "rimraf": "^6.0.1",
-    "stripe": "^17.6.0",
-    "sass": "^1.69.5"
+    "sass": "^1.85.0",
+    "stripe": "^17.6.0"
   },
   "devDependencies": {
     "netlify-cli": "^18.1.0"

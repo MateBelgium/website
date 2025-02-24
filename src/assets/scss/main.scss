@@ -1,4 +1,7 @@
-@layer reset, base, settings, layout, components, utilities;
-
 /* RESET */
-@import "base/reset.css" layer(reset);
+@use "./base/base-reset.scss" as *;
+@use "./base/base-fonts" as *;
+
+@use "./params/params-fontsize" as *;
+
+@use "./pages/pages-index" as *;

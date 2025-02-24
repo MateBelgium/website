@@ -1,0 +1,73 @@
+/* ===================================
+=font size
+=================================== */
+
+:root {
+    /* basic variables */
+    --fontsize-xs: calc(12 / 16 * 1rem);
+    --fontsize-s: calc(14 / 16 * 1rem);
+    --fontsize-m: 1rem;
+    --fontsize-ml: calc(24 / 16 * 1rem);
+    --fontsize-l: calc(32 / 16 * 1rem);
+    --fontsize-xl: calc(48 / 16 * 1rem);
+    --fontsize-xxl: calc(96 / 16 * 1rem);
+
+    --fontsize-jumbo: calc(128 / 16 * 1rem);
+
+    /* mobile variables */
+    --fontsize-core: var(--fontsize-xs);
+    --fontsize-subtitle: var(--fontsize-s);
+    --fontsize-title: var(--fontsize-l);
+    --fontsize-buttons: var(--fontsize-core);
+
+    /* tablet variables */    
+    @media all and (min-width: 768px) {
+
+        --fontsize-core: var(--fontsize-s);
+        --fontsize-subtitle: var(--fontsize-m);
+        --fontsize-title: var(--fontsize-xl);
+        --fontsize-buttons: var(--fontsize-core);
+    }
+
+    /* small desktop variables */    
+    @media all and (min-width: 1024px) {
+
+        --fontsize-core: var(--fontsize-s);
+        --fontsize-subtitle: var(--fontsize-ml);
+        --fontsize-title: var(--fontsize-xl);
+        --fontsize-buttons: var(--fontsize-core);
+    }   
+    
+    /* big desktop variables */    
+    @media all and (min-width: 1440px) {
+
+        --fontsize-core: var(--fontsize-m);
+        --fontsize-subtitle: var(--fontsize-l);
+        --fontsize-title: var(--fontsize-xxl);
+        --fontsize-buttons: var(--fontsize-core);
+    }   
+    
+
+}
+
+/* ===================================
+=classes
+=================================== */
+
+.title {
+
+    font-size: var(--fontsize-title);
+
+}
+
+.subtitle {
+
+    font-size: var(--fontsize-subtitle);
+
+}
+
+.core {
+
+    font-size: var(--fontsize-core);
+
+}
