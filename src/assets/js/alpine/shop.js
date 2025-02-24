@@ -24,7 +24,7 @@ export default () => {
         let data = await response.json();
         let stripeCheckoutUrl = data.sessionUrl;
 
-        window.location.replace(stripeCheckoutUrl);
+        window.open(stripeCheckoutUrl);
       } catch (error) {
         throw new Error(error);
       }
