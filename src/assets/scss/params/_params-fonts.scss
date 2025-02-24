@@ -51,23 +51,74 @@
 }
 
 /* ===================================
+=font family
+=================================== */
+
+:root {
+
+    /* mobile variables */
+    --fontfamily-core: "Sentient";
+    --fontfamily-subtitle: "DMSans";
+    --fontfamily-title: "Panchang";
+    --fontfamily-buttons: "DMSans";    
+
+}
+
+/* ===================================
+=font weight
+=================================== */
+
+:root {
+
+    /* mobile variables */
+    --fontweight-core: 400;
+    --fontweight-subtitle: 600;
+    --fontweight-title: 600;
+    --fontweight-buttons: 400;    
+
+}
+
+/* ===================================
+=font color
+=================================== */
+
+:root {
+
+    /* mobile variables */
+    --fontcolor-core: var(--color-grey-300);
+    --fontcolor-subtitle: var(--color-grey-300);
+    --fontcolor-title: var(--color-grey-100);
+    --fontcolor-buttons: var(--color-grey-100);    
+
+}
+
+/* ===================================
 =classes
 =================================== */
 
 .title {
 
     font-size: var(--fontsize-title);
+    font-family: var(--fontfamily-title);
+    font-weight: var(--fontweight-title);
+    color: var(--fontcolor-title);
 
 }
 
 .subtitle {
 
     font-size: var(--fontsize-subtitle);
+    font-family: var(--fontfamily-subtitle);
+    font-weight: var(--fontweight-subtitle);
+    color: var(--fontcolor-subtitle);
 
 }
 
 .core {
 
     font-size: var(--fontsize-core);
+    font-family: var(--fontfamily-core);
+    font-weight: var(--fontweight-core);
+    color: var(--fontcolor-core);
 
 }

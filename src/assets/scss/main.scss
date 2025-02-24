@@ -2,6 +2,7 @@
 @use "./base/base-reset.scss" as *;
 @use "./base/base-fonts" as *;
 
-@use "./params/params-fontsize" as *;
+@use "./params/params-colors" as *;
+@use "./params/params-fonts" as *;
 
 @use "./pages/pages-index" as *;
