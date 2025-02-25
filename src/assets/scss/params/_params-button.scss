@@ -1,0 +1,39 @@
+.button{
+    padding: 9px 18px;
+
+    width: fit-content;
+
+    display: block;
+    justify-self: center;
+
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+
+    text-decoration: none;
+
+    border-radius: 24px;
+}
+
+.invertButton{
+    background-color: var(--color-white);
+    color: var(--color-text);
+
+    border: 1px solid var(--color-background-dark);
+}
+
+
+@media all and (min-width: 768px){
+    .button{
+        padding: 9px 64px;
+    }
+
+}
+
+@media all and (min-width: 1024px){
+    .button{
+        justify-self: left;
+        border-radius: 0 24px 24px 24px;
+        padding: 9px 18px;
+    }
+
+}
