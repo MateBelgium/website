@@ -28,13 +28,15 @@ async function getProducts() {
         priceAmount: product.default_price.unit_amount,
         priceDisplay: formatPrice(product.default_price.unit_amount),
         image: product.images[0] ?? null,
+        collection: product.metadata.collection ?? null,
+        quantityLeft: product.metadata.quantity ?? null,
       };
     });
-
     return formattedProducts;
   } catch (err) {
     throw new Error(err);
   }
+
 }
 
 export default getProducts;

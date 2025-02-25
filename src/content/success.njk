@@ -5,5 +5,12 @@ permalink: success/index.html
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+  <div
+  x-data="shop"
+  x-init="updateProductQuantity"
+  style="display: none;">
+  </div>
+
   <p>Thank you for your purshase. This has been a success.</p>
+
 {% endblock %}

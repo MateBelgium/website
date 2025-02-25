@@ -5,9 +5,10 @@ permalink: shop.html
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-  <div 
+  <div
     x-data="shop" 
-    x-effect="syncCart">
+    x-effect="syncCart"
+    class="shop__container grid-layout">
 
     <button
       x-cloak 
@@ -16,31 +17,36 @@ permalink: shop.html
       <span x-text="totalProducts"></span>
     </button>
 
-    <h1>Products</h1>
     {% for item in products %}
-      {% if loop.first %}<ul>{% endif %}
-        <li>
+      {% if loop.first %}<ul class="shop__list">{% endif %}
+        <li class="shop__item">
             <article>
-              <h2>{{ item.name }}</h2>
               {% if item.image %}
-              <img 
-                src="{{ item.image }}" 
+              <div 
+                style="background-image: url('{{ item.image }}');" 
                 alt="{{ item.name }}"
                 width="60"
-                height="60">
+                height="60"
+                class="shopItem__img">
+              </div>
               {% endif %}
-              <p>
-                {{ item.description }}<br />
-                {{ item.priceDisplay }}<br />
+              <div class="shopItem__mainInfos">
+                <h2 class="shopItem__name">{{ item.name }}</h2>
+                <p class="shopItem__price"> {{ item.priceDisplay }} </p>
+              </div>
+                
                 <button 
                   x-cloak
                   @click="addToCart($el.dataset)" 
                   data-priceid="{{ item.priceId }}"
                   data-name="{{ item.name }}"
-                  data-quantity="1">
+                  data-quantity="1"
+                  data-id= {{item.id}}>
                   Add to cart
                 </button>
-              </p>
+                
+              
+              <p class="shopItem__collection">collection {{item.collection}}</p>
             </article>
         </li>
       {% if loop.last %}</ul>{% endif %}
@@ -68,14 +74,9 @@ permalink: shop.html
       <p>
         <button @click="closeCart">Continue Shopping</button>
         <button x-show="products.length" @click="checkout">Checkout</button>
+        <button @click="updateProductQuantity">success</button>
       </p>
     </dialog>
-
-    <div class="grid-layout">hahah</div>
-
-    <p class="title">Title</p>
-    <p class="subtitle">A long subtitle</p>
-    <p class="core">lorem ipsum dolar sit amet</p>
-
   </div>
+
 {% endblock %}

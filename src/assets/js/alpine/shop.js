@@ -8,6 +8,25 @@ export default () => {
       return this.products.reduce((accum, item) => accum + item.quantity, 0);
     },
 
+    async updateProductQuantity() {
+
+      try {
+        const response = await fetch("/.netlify/functions/updateQuantity", {
+          method: "POST",
+          body: JSON.stringify(this.products),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+  
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
     async checkout() {
       try {
         const response = await fetch("/.netlify/functions/checkout", {
@@ -24,7 +43,7 @@ export default () => {
         let data = await response.json();
         let stripeCheckoutUrl = data.sessionUrl;
 
-        window.open(stripeCheckoutUrl);
+        window.open(stripeCheckoutUrl);    
       } catch (error) {
         throw new Error(error);
       }
@@ -44,7 +63,9 @@ export default () => {
 
     addToCart(data) {
       // build product object
+      console.log(data.id)
       let product = {
+        productId: data.id,
         id: data.priceid,
         priceId: data.priceid,
         name: data.name,

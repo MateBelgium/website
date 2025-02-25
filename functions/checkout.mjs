@@ -19,14 +19,42 @@ function formatLineItems(items) {
   return lineItems;
 }
 
+async function checkProductsQuantity(products) {
+  try {
+    for (let i = 0; i < products.length; i++) {
+      const element = products[i];
+      const product = await stripe.products.retrieve(element.id)
+
+      if(product.metadata.quantity <= 0){
+        console.log("oups")
+        throw new Error("Product : " + product.name + " is not available anymore");
+      }else if(product.metadata.quantity - element.quantityWanted < 0) {
+        throw new Error("Product : " + product.name + " has not enough stock left for your purchase (" + product.metadata.quantity + " left, " + element.quantityWanted + " wanted)");
+      }
+      
+    }
+    return;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
 async function createCheckout(request, context) {
-  console.log("caco")
+
   try {
     let siteUrl = context.url.origin;
     let data = await request.json();
-    console.log(data)
+    let productsId = data.map((product) => {
+      console.log(product)
+      return {
+        id: product.productId,
+        quantityWanted: product.quantity,
+      };
+    });
+
+    await checkProductsQuantity(productsId); // check if an item is sold out
+
     let lineItems = formatLineItems(data);
-    console.log(lineItems)
 
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
@@ -43,6 +71,8 @@ async function createCheckout(request, context) {
   } catch (error) {
     throw new Error(error);
   }
+
+
 }
 
 export default createCheckout;
