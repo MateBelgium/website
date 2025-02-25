@@ -1,9 +1,60 @@
 .section-light{
     background-color: var(--color-white);
-    border-radius: 24px;
-    padding-block: var(--spacing-xxl);
+    padding-block: var(--spacing-s);;
+    position: relative;
+}
+
+.section-light::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: calc(var(--spacing-s) * -1 );
+    width: 100%;
+    height: var(--spacing-s);
+    background-color: var(--color-white);
+    border-end-end-radius: var(--spacing-s);
+    border-end-start-radius: var(--spacing-s);
+}
+
+.section-light::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(var(--spacing-s) * -1 );
+    width: 100%;
+    height: var(--spacing-s);
+    background-color: var(--color-white);
+    border-start-end-radius: var(--spacing-s);
+    border-start-start-radius: var(--spacing-s);
 }
 
 .section-dark{
     background-color: var(--color-background-dark);
+    padding-block-start: var(--spacing-s);
+}
+
+@media all and (min-width: 768px) {
+
+    .section-light{
+        padding-block: var(--spacing-l);;
+    }
+    
+    .section-light::after{
+        bottom: calc(var(--spacing-l) * -1 );
+        height: var(--spacing-l);
+        border-end-end-radius: var(--spacing-l);
+        border-end-start-radius: var(--spacing-l);
+    }
+    
+    .section-light::before{
+        top: calc(var(--spacing-l) * -1 );
+        height: var(--spacing-l);
+        border-start-end-radius: var(--spacing-l);
+        border-start-start-radius: var(--spacing-l);
+    }
+    
+    .section-dark{
+        padding-block-start: var(--spacing-l);
+    }
+
 }
