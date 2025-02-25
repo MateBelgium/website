@@ -12,6 +12,7 @@ export default async function (eleventyConfig) {
   // copy files
   eleventyConfig.addPassthroughCopy("./src/assets/fonts");
   eleventyConfig.addPassthroughCopy("./src/assets/img");
+  eleventyConfig.addPassthroughCopy("./src/assets/medias");
 
   // Eleventy dev server config
   eleventyConfig.setServerOptions({
