@@ -1,0 +1,322 @@
+@keyframes imageShuffle {
+    0%, 15% { opacity: 0; }    /* Stay hidden at the start */
+    20%, 25% { opacity: 1; }    /* Fade in smoothly (0 to 1) */
+    50% { opacity: 1; }         /* Stay fully visible */
+    55%, 100% { opacity: 0; }   /* Fade out smoothly (1 to 0) */
+}
+
+.homepageIntroText--content{
+    display: flex;
+    flex-direction: column;
+
+    gap: 36px;
+
+    grid-area: 2 / 2 / -2 / -2;
+}
+
+.homepageIntroText--content p{
+    max-width: 600px;
+}
+
+.homepageIntroImage--content{
+    display: none;
+}
+
+.birdImg1{
+    width: 250px;
+    height: 175px;
+    background-image: url("../img/birdBlack1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.birdImg2{
+    width: 250px;
+    height: 175px;
+    background-image: url("../img/birdBlack2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.homepageCollection--header{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding-block: 24px;
+}
+
+.homepage--headerImg{
+    height: 150px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: 50% 40%;
+}
+
+.homepageCollectionText--container{
+    gap: 18px;
+}
+
+.homepageCollectionText--content{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    grid-area: 2 / 2 / -2 / -2;
+}
+
+.homepageCollectionText--content p{
+    padding-left: 15vw;
+}
+
+.homepageCollectionImage--container{
+
+    grid-area: 4 / 2 / 4 / 7;
+
+    aspect-ratio: 4 / 5;
+
+    position: relative;
+
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 24px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.homepageCollectionImage--content{
+    background-size: cover;
+    background-position: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#hpCol1:checked ~ .hpCol1,
+#hpCol2:checked ~ .hpCol2,
+#hpCol3:checked ~ .hpCol3 {
+  opacity: 1;
+}
+
+.image-labels {
+    position: absolute;
+    bottom: 10px; /* Place labels below images */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10; /* Ensure labels are on top */
+}
+
+.image-labels label {
+    width: 12px;
+    height: 12px;
+    background: var(--color-grey-500);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+  
+  /* Highlight active label */
+#hpCol1:checked ~ .image-labels label[for="hpCol1"],
+#hpCol2:checked ~ .image-labels label[for="hpCol2"],
+#hpCol3:checked ~ .image-labels label[for="hpCol3"] {
+    background: var(--color-grey-100);
+}
+
+.homepageAbout--container{
+    grid-row-gap: 36px;
+}
+
+.homepageAboutText--content{
+    display: flex;
+    flex-direction: column;
+
+    gap: 36px;
+    grid-area: 2 / 2 / -2 / -2;
+}
+
+.homepageAboutImage--container{
+    grid-area: 2 / 2 / 3 / -2;
+
+    aspect-ratio: 4 / 5;
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 24px;
+}
+
+.homepageAboutImage--content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.homepageAboutImage--content::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(rgba(255,253,248,0) 0%, rgba(28,28,28,0.5) 100%);
+    width: 100%;
+    height: 100px;
+}
+
+.homepageAboutImage--content div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--color-text);
+    text-align: left;
+    padding: 10px 20px;
+    z-index: 2;
+}
+
+.homepageAboutImage--content p {
+    color: var(--color-grey-100);
+}
+
+.hpAbo1 { animation: imageShuffle 20s infinite; } /* 1st image (starts at 0s) */
+/* Image 2 */
+.hpAbo2 { animation: imageShuffle 20s infinite 5s; } /* 2nd image (delayed 5s) */
+/* Image 3 */
+.hpAbo3 { animation: imageShuffle 20s infinite 10s; } /* 3rd image (delayed 10s) */
+/* Image 4 */
+.hpAbo4 { animation: imageShuffle 20s infinite 15s; } /* 4th image (delayed 15s) */
+
+@media all and (min-width: 768px){
+    .homepageIntroText--content{
+        grid-area: 3 / 3 / -3 / -3;
+    }
+
+    .homepageCollectionText--content{
+        padding-top: var(--spacing-xl);
+        grid-area: 2 / 2 / 2 / 5;
+        position: sticky;
+        top: 0;
+    }
+
+    .homepageCollectionText--content p{
+        padding: 0;
+    }
+
+    .homepageCollectionImage--container{
+        padding-top: var(--spacing-xl);
+        display: flex;
+        gap: 24px;
+        grid-area: 6 / 6 / 2 / 9;
+        flex-direction: column; /* Normal column layout */
+        height: auto; /* Allow images to take normal height */
+        overflow: visible;
+    }
+
+    .homepageCollectionImage--content{
+        position: relative;
+        opacity: 1;
+    }
+
+    .image-slide {
+        position: static;
+        opacity: 1;
+    }
+
+        /* Hide labels */
+    .image-labels {
+        display: none;
+    }
+
+    .homepageAboutText--content{
+        grid-area: 2 / 5 / 2 / 9;
+        padding-left: 10%;
+    }
+
+    .homepageAboutText--content h1{
+        text-align: left;
+    }
+
+    .homepageAboutText--content .button{
+        justify-self: left;
+        padding: 9px 18px;
+    }
+
+    .homepageAboutImage--container{
+        grid-area: 2 / 2 / 2 / 5;
+    }
+
+}
+
+@media all and (min-width: 1024px){
+    .homepageIntroText--content{
+        grid-area: 1 / 2 / 1 / 7;
+    }
+    .homepageIntroText--content h1{
+        text-align: left;
+    }
+    .homepageIntroImage--content{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    
+        gap: 36px;
+        
+        grid-area: 1 / 8 / 1 / 11;
+    }
+    
+    .homepage--headerImg{
+        height: 200px;
+
+    }
+
+    .homepageCollectionText--content{
+        grid-area: 2 / 2 / 2 / 6;
+    }
+
+    .homepageCollectionImage--container{
+        grid-area: 6 / 7 / 2 / 11;
+    }
+
+    .homepageAboutText--content{
+        grid-area: 2 / 6 / 2 / 11;
+        padding-left: 10%;
+    }
+
+    .homepageAboutImage--container{
+        grid-area: 2 / 2 / 2 / 6;
+    }
+}
+
+@media all and (min-width: 1440px){
+
+        
+    .homepage--headerImg{
+        height: 250px;
+
+    }
+
+    .homepageCollectionText--content{
+        grid-area: 3 / 3 / 2 / 6;
+    }
+
+    .homepageCollectionImage--container{
+        grid-area: 6 / 7 / 2 / 10;
+    }
+}

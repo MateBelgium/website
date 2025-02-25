@@ -3,8 +3,10 @@
 @use "./base/base-grid.scss" as *;
 @use "./base/base-fonts" as *;
 @use "./base/base-html" as *;
+@use "./base/base-sections" as *;
 
 @use "./params/params-colors" as *;
 @use "./params/params-fonts" as *;
+@use "./params/params-button" as *;
 
 @use "./pages/pages-index" as *;

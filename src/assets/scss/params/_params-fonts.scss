@@ -20,6 +20,8 @@
     --fontsize-title: var(--fontsize-l);
     --fontsize-buttons: var(--fontsize-core);
 
+    --titlelineheight: 36px;
+
     /* tablet variables */    
     @media all and (min-width: 768px) {
 
@@ -27,6 +29,7 @@
         --fontsize-subtitle: var(--fontsize-m);
         --fontsize-title: var(--fontsize-xl);
         --fontsize-buttons: var(--fontsize-core);
+        --titlelineheight: 64px;
     }
 
     /* small desktop variables */    
@@ -45,6 +48,7 @@
         --fontsize-subtitle: var(--fontsize-l);
         --fontsize-title: var(--fontsize-xxl);
         --fontsize-buttons: var(--fontsize-core);
+        --titlelineheight: 110px;
     }   
     
 
@@ -58,6 +62,7 @@
 
     /* mobile variables */
     --fontfamily-core: "Sentient";
+    --fontfamily-coreDM: "DMSans";
     --fontfamily-subtitle: "DMSans";
     --fontfamily-title: "Panchang";
     --fontfamily-buttons: "DMSans";    
@@ -73,7 +78,7 @@
     /* mobile variables */
     --fontweight-core: 400;
     --fontweight-subtitle: 600;
-    --fontweight-title: 600;
+    --fontweight-title: 800;
     --fontweight-buttons: 400;    
 
 }
@@ -86,9 +91,11 @@
 
     /* mobile variables */
     --fontcolor-core: var(--color-grey-300);
+    --fontcolor-core-dark: var(--color-white);
     --fontcolor-subtitle: var(--color-grey-300);
     --fontcolor-title: var(--color-grey-100);
     --fontcolor-buttons: var(--color-grey-100);    
+    --fontcolor-buttons-dark: var(--color-white);    
 
 }
 
@@ -102,6 +109,9 @@
     font-family: var(--fontfamily-title);
     font-weight: var(--fontweight-title);
     color: var(--fontcolor-title);
+    line-height: var(--titlelineheight);
+
+    text-align: center;
 
 }
 
@@ -121,4 +131,29 @@
     font-weight: var(--fontweight-core);
     color: var(--fontcolor-core);
 
+}
+
+.coreDM {
+
+    font-size: var(--fontsize-core);
+    font-family: var(--fontfamily-coreDM);
+    font-weight: var(--fontweight-core);
+    color: var(--fontcolor-core-dark);
+
+}
+
+.buttons {
+
+    font-size: var(--fontsize-buttons);
+    font-family: var(--fontfamily-buttons);
+    font-weight: var(--fontweight-buttons);
+    color: var(--fontcolor-buttons);
+
+}
+
+.buttonsDark{
+    font-size: var(--fontsize-buttons);
+    font-family: var(--fontfamily-buttons);
+    font-weight: var(--fontweight-buttons);
+    color: var(--fontcolor-buttons-dark);
 }

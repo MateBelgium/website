@@ -5,77 +5,129 @@ permalink: index.html
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-  <div 
-    x-data="shop" 
-    x-effect="syncCart">
 
-    <button
-      x-cloak 
-      @click="openCart()">
-      view cart 
-      <span x-text="totalProducts"></span>
-    </button>
+<div class="section-light">
 
-    <h1>Products</h1>
-    {% for item in products %}
-      {% if loop.first %}<ul>{% endif %}
-        <li>
-            <article>
-              <h2>{{ item.name }}</h2>
-              {% if item.image %}
-              <img 
-                src="{{ item.image }}" 
-                alt="{{ item.name }}"
-                width="60"
-                height="60">
-              {% endif %}
-              <p>
-                {{ item.description }}<br />
-                {{ item.priceDisplay }}<br />
-                <button 
-                  x-cloak
-                  @click="addToCart($el.dataset)" 
-                  data-priceid="{{ item.priceId }}"
-                  data-name="{{ item.name }}"
-                  data-quantity="1">
-                  Add to cart
-                </button>
-              </p>
-            </article>
-        </li>
-      {% if loop.last %}</ul>{% endif %}
-    {% endfor %}
-
-    <dialog data-cart>
-      <p><span x-text="totalProducts"></span> products in your cart</p>
-      <template 
-        x-for="(item, index) in products" 
-        :key="item.id">
-        <div>
-          <h2 x-text="item.name"></h2>
-          <p>
-            Quantity: 
-            <input 
-              type="number" 
-              min="1" 
-              max="10" 
-              value="item.quantity" 
-              x-model.number="item.quantity" />
-            <button @click="deleteFromCart(item.id)">Delete</button>
-          </p>
+    <div class="homePageIntro--container grid-layout">
+        <div class="homepageIntroText--content">
+            <h1 class="title">Explore our <br> universe</h1>
+            <p class="core">Mate, more than just a clothing brand—experience something truly unique.
+                Whether you’re here for high-quality garments, cinematic short films, captivating storytelling, or a fashion magazine, each collection invites you into a universe that explores every facet of creativity.
+                <br> <br>
+                From physical to digital formats, ephemeral creations to timeless works, interactive pieces to those etched in permanence: we break the boundaries between fashion, storytelling, and artistic expression. Every detail is carefully crafted to make your discovery an unforgettable experience.
+            </p>
+            <a href="">
+                <div class="button">
+                    <p class="buttonsDark">discover more</p>
+                </div>
+            </a>
         </div>
-      </template>
-      <p>
-        <button @click="closeCart">Continue Shopping</button>
-        <button x-show="products.length" @click="checkout">Checkout</button>
-      </p>
-    </dialog>
+        
+        <div class="homepageIntroImage--content">
+            <div class="birdImg1"></div>
+            <div class="birdImg2"></div>
+        </div>
 
-    <div class="grid-layout">hahah</div>
+    </div>
 
-    <p class="title">Title</p>
-    <p class="subtitle">A long subtitle</p>
-    <p class="core">lorem ipsum dolar sit amet</p>
+</div>
 
+<div class="section-dark">
+
+  <div class="homepageCollection--header">
+    <p class="coreDM">↓ Latest Collection ↓</p>
   </div>
+  <div class="homepage--headerImg" style="background-image: url(../assets/img/hp-bgi.jpg);"></div>
+
+</div>
+
+<div class="section-light">
+    <div class="homepageCollectionText--container grid-layout">
+        <div class="homepageCollectionText--content">
+            <h2 class="subtitle">Endless forests, a landscape seemingly knowing only two seasons, and a cold wind as its sole breath.</h2>
+            <p class="core">The only variation permeating these places seems to be the rain, alternating with the mist. Yet, despite this apparent lack of natural warmth, there's a sense of belonging here. You feel at ease, warmed by human connection, by the simple joy of living, and by the shared experience of just being. No matter where we come from, it feels like home. 
+            <br><br>
+            Driven by the desire to feel that spark of human warmth once again, four friends set out into the dense forests of the Belgian Ardennes. What began as a search for an adventure out of the ordinary led to the discovery that these misty, echoing woods hold far more secrets than they let on...
+            </p>
+        </div>
+
+        <div class="homepageCollectionImage--container">
+
+            <input type="radio" id="hpCol1" name="image-selector" checked>
+            <input type="radio" id="hpCol2" name="image-selector">
+            <input type="radio" id="hpCol3" name="image-selector">
+
+            <div class="homepageCollectionImage--content hpCol1" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
+            <div class="homepageCollectionImage--content hpCol2" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
+            <div class="homepageCollectionImage--content hpCol3" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
+
+            <div class="image-labels">
+                <label for="hpCol1"></label>
+                <label for="hpCol2"></label>
+                <label for="hpCol3"></label>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section-dark">
+
+    <div class="homepageCollection--header">
+      <p class="coreDM">>> Click Here <<</p>
+    </div>
+    <div class="homepage--headerImg" style="background-image: url(../assets/img/hp-abobgi2.png); background-position: 50% 27%;"></div>
+  
+</div>
+
+<div class="section-light">
+
+    <div class="homepageAbout--container grid-layout">
+
+        <div class="homepageAboutText--content">
+            <h1 class="title">Meet mate</h1>
+            <p class="core">Clothing, cinematic videos, a magazine... Dive into the Mate universe in all its forms and take the risk of losing yourself in it—or perhaps finding yourself.
+                <br><br>
+            Revealing the beauty of things through our creations, using as many mediums as necessary to bring our ideas to life, daring to cross the boundaries of... That's as simple as it sounds, and yet, so much more.</p>
+            <a href="">
+                <div class="button invertButton">
+                    <p class="buttons">learn more</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="homepageAboutImage--container">
+            <div class="homepageAboutImage--content hpAbo1" style="background-image: url(../assets/img/hp-abo-1.jpg); background-position: 50% 30%;">
+              <div>
+                <h2 class="coreDM">Théo Etienne-Weerts</h2>
+                <p class="core">Un Mate</p>
+              </div>
+            </div>
+          
+            <div class="homepageAboutImage--content hpAbo2" style="background-image: url(../assets/img/hp-abo-2.jpg); background-position: 50% 30%;">
+              <div>
+                <h2 class="coreDM">Elann Fraiture</h2>
+                <p class="core">Un Mate aussi</p>
+              </div>
+            </div>
+          
+            <div class="homepageAboutImage--content hpAbo3" style="background-image: url(../assets/img/hp-abo-3.jpg); background-position: 50% 25%;">
+              <div>
+                <h2 class="coreDM">Arno Joachim</h2>
+                <p class="core">Encore un Mate</p>
+              </div>
+            </div>
+          
+            <div class="homepageAboutImage--content hpAbo4" style="background-image: url(../assets/img/hp-abo-4.jpg); background-position: 50% 10%;">
+              <div>
+                <h2 class="coreDM">Martin Charlier</h2>
+                <p class="core">Toujours un Mate</p>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
 {% endblock %}
