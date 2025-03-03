@@ -40,6 +40,10 @@
     background-repeat: no-repeat;
 }
 
+.homepageIntroButton{
+    justify-items: center;
+}
+
 .homepageCollection--header{
     width: 100%;
 
@@ -148,6 +152,11 @@ input[type="radio"] {
 
     gap: 36px;
     grid-area: 1 / 2 / 2 / -2;
+}
+
+
+.homepageAboutButton{
+    justify-items: center;
 }
 
 .homepageAboutImage--container{
