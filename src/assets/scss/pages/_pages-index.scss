@@ -41,7 +41,8 @@
 }
 
 .homepageIntroButton{
-    justify-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .homepageCollection--header{
@@ -55,11 +56,29 @@
 
 .homepage--headerImg{
     height: 150px;
+    width: 100%;
 
     background-repeat: no-repeat;
     background-size: cover;
 
     background-position: 50% 40%;
+}
+
+.homepage--header{
+    display: flex;
+    justify-content: center;
+}
+
+.homepage--headerText{
+    position: absolute;
+    width: 100%;
+    max-width: 1000px;
+    height: calc(150px - var(--spacing-s));
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    background-position: 50% 50%;
 }
 
 .homepageCollection--container{
@@ -123,7 +142,7 @@ input[type="radio"] {
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    z-index: 10; /* Ensure labels are on top */
+    z-index: 2; /* Ensure labels are on top */
 }
 
 .image-labels label {
@@ -156,7 +175,8 @@ input[type="radio"] {
 
 
 .homepageAboutButton{
-    justify-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .homepageAboutImage--container{
@@ -198,12 +218,12 @@ input[type="radio"] {
     left: 0;
     color: var(--color-text);
     text-align: left;
-    padding: 10px 20px;
+    padding: 15px 20px;
     z-index: 2;
 }
 
 .homepageAboutImage--content h2 {
-    font-size: var(--fontsize-m);
+    font-size: var(--fontsize-ml);
     font-weight: 600;
     padding-bottom: 3px;
 }
@@ -220,6 +240,10 @@ input[type="radio"] {
 @media all and (min-width: 768px){
     .homepageIntroText--content{
         grid-area: 3 / 3 / -3 / -3;
+    }
+
+    .homepage--headerText{
+        height: calc(150px - var(--spacing-l));
     }
 
     .homepageCollection--container{
@@ -266,6 +290,10 @@ input[type="radio"] {
         grid-row-gap: 0px;
     }
 
+    .homepageAboutButton{
+        justify-content: left;
+    }
+
     .homepageAboutText--content{
         grid-area: 2 / 5 / 2 / 9;
         padding-left: 10%;
@@ -303,9 +331,16 @@ input[type="radio"] {
         grid-area: 1 / 8 / 1 / 11;
     }
     
+    .homepageIntroButton{
+        justify-content: left;
+    }
+
     .homepage--headerImg{
         height: 200px;
+    }
 
+    .homepage--headerText{
+        height: calc(200px - var(--spacing-s));
     }
 
     .homepageCollection--container{
@@ -339,6 +374,10 @@ input[type="radio"] {
     .homepage--headerImg{
         height: 250px;
 
+    }
+
+    .homepage--headerText{
+        height: calc(250px - var(--spacing-l));
     }
 
     .homepageCollectionText--content{
