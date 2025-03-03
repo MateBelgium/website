@@ -1,6 +1,6 @@
 .section-light{
     background-color: var(--color-white);
-    padding-block: var(--spacing-s);;
+    padding-block: var(--spacing-xxl);;
     position: relative;
 }
 
@@ -36,7 +36,7 @@
 @media all and (min-width: 768px) {
 
     .section-light{
-        padding-block: var(--spacing-l);;
+        padding-block: var(--spacing-xxl);;
     }
     
     .section-light::after{
