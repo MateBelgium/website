@@ -1,0 +1,83 @@
+---
+permalink: collection.html
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+
+<div class="section-light noBottom">
+    <div class="collectionIntro__container grid-layout">
+        <div class="collectionIntro__title"></div>
+        <p class="collectionIntro__text core">The only variation permeating these places seems to be the rain, alternating with the mist. Yet, despite this apparent lack of natural warmth, there's a sense of belonging here. You feel at ease, warmed by human connection, by the simple joy of living, and by the shared experience of just being. No matter where we come from, it feels like home.</p>
+    </div>
+    <div class="collectionIntro__bg"></div>
+</div>
+
+<div class="section-dark">
+
+    <div class="collectionIntroVideo__container grid-layout">
+        <div class="collectionIntro__bird videoBird1"></div>
+        <div class="collectionIntroVideo__content">
+            <video-player
+            title="Mate: The Movie"
+            data-iframe-src="https://www.youtube-nocookie.com/embed/C-u5WLJ9Yk4"
+            class="collectionIntro__video">
+            <a
+            href="https://www.youtube.com/watch?v=C-u5WLJ9Yk4"
+            aria-label="load video">
+            <img
+            src="../assets/img/hp-bgi.jpg"
+            loading="lazy"
+            decoding="async"
+            alt="Mate Movie" />
+            </a>
+            </video-player>
+        </div>
+        <div class="collectionIntro__bird videoBird2"></div>
+
+        <div class="collectionIntroText__subtitle subtitle">Endless forests, a landscape seemingly knowing only two seasons, and a cold wind as its sole breath.</div>
+        <p class="collectionIntroText__core core">Driven by the desire to feel that spark of human warmth once again, four friends set out into the dense forests of the Belgian Ardennes. What began as a search for an adventure out of the ordinary led to the discovery that these misty, echoing woods hold far more secrets than they let on...</p>
+        <p class="collectionIntroText__core core">The only variation permeating these places seems to be the rain, alternating with the mist. Yet, despite this apparent lack of natural warmth, there's a sense of belonging here. You feel at ease, warmed by human connection, by the simple joy of living, and by the shared experience of just being. No matter where we come from, it feels like home.
+
+            Driven by the desire to feel that spark of human warmth once again, four friends set out into the dense forests of the Belgian Ardennes. What began as a search for an adventure out of the ordinary led to the discovery that these misty, echoing woods hold far more secrets than they let on...</p>
+    
+    </div>
+
+</div>
+
+<div class="section-light">
+
+    <div class="collectionShop__container grid-layout">
+        <h2 class="collectionShop__subtitle subtitle">Discover Our T-Shirt</h2>
+
+        <div class="collectionShopItems__container">
+
+            <input type="radio" id="colShop1" name="colShopImg-selector" checked>
+            <input type="radio" id="colShop2" name="colShopImg-selector">
+            <input type="radio" id="colShop3" name="colShopImg-selector">
+
+            <div class="collectionShopItem colShop1" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
+            <div class="collectionShopItem colShop2" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
+            <div class="collectionShopItem colShop3" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
+
+            <div class="colShopImg-labels">
+                <label for="colShop1"></label>
+                <label for="colShop2"></label>
+                <label for="colShop3"></label>
+            </div>
+
+        </div>
+
+        <a href="/shop" class="collectionShopButton">
+            <div class="button">
+                <p class="buttonsDark">go to shop</p>
+            </div>
+        </a>
+    </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
