@@ -4,79 +4,26 @@ permalink: shop.html
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
-  <div
-    x-data="shop" 
-    x-effect="syncCart"
-    class="shop__container grid-layout">
+{% from "macros/shopItemCard.njk" import shopItemCard %}
 
-    <button
-      x-cloak 
-      @click="openCart()">
-      view cart 
-      <span x-text="totalProducts"></span>
-    </button>
+{% block content %}
 
     {% for item in products %}
       {% if loop.first %}<ul class="shop__list">{% endif %}
         <li class="shop__item">
-            <article>
-              {% if item.image %}
-              <div 
-                style="background-image: url('{{ item.image }}');" 
-                alt="{{ item.name }}"
-                width="60"
-                height="60"
-                class="shopItem__img">
-              </div>
-              {% endif %}
-              <div class="shopItem__mainInfos">
-                <h2 class="shopItem__name">{{ item.name }}</h2>
-                <p class="shopItem__price"> {{ item.priceDisplay }} </p>
-              </div>
-                
-                <button 
-                  x-cloak
-                  @click="addToCart($el.dataset)" 
-                  data-priceid="{{ item.priceId }}"
-                  data-name="{{ item.name }}"
-                  data-quantity="1"
-                  data-id= {{item.id}}>
-                  Add to cart
-                </button>
-                
-              
-              <p class="shopItem__collection">collection {{item.collection}}</p>
-            </article>
+          {{ shopItemCard({
+            image: item.image, 
+            name: item.name, 
+            priceDisplay: item.priceDisplay, 
+            priceId: item.priceId, 
+            id: item.id, 
+            collection: item.collection,
+            sizes: item.sizes
+          }) }}
         </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
 
-    <dialog data-cart>
-      <p><span x-text="totalProducts"></span> products in your cart</p>
-      <template 
-        x-for="(item, index) in products" 
-        :key="item.id">
-        <div>
-          <h2 x-text="item.name"></h2>
-          <p>
-            Quantity: 
-            <input 
-              type="number" 
-              min="1" 
-              max="10" 
-              value="item.quantity" 
-              x-model.number="item.quantity" />
-            <button @click="deleteFromCart(item.id)">Delete</button>
-          </p>
-        </div>
-      </template>
-      <p>
-        <button @click="closeCart">Continue Shopping</button>
-        <button x-show="products.length" @click="checkout">Checkout</button>
-        <button @click="updateProductQuantity">success</button>
-      </p>
-    </dialog>
   </div>
 
 {% endblock %}
