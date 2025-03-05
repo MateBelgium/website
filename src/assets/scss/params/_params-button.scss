@@ -18,6 +18,11 @@
     border: 1px solid var(--color-background-dark);
 }
 
+.disabledB{
+    cursor: pointer;
+    pointer-events: none;
+}
+
 
 @media all and (min-width: 768px){
     .button{
