@@ -138,7 +138,7 @@ permalink: "/products/{{ product.name }}/index.html"
             x-for="(item, index) in products"
             :key="item.id">
               <li class="cartItem cartItem__price">
-                <p x-text="item.price"></p>
+                <p x-text="(item.price * item.quantity).toFixed(2) + '€'"></p>
               </li>
             </template>
           </ul>
