@@ -8,14 +8,16 @@
           width="60"
           height="60"
           class="shopItem__img">
+
+          <a class="shopItem__link" href="/products/{{params.name}}/index.html">view this product</a>
+
         </div>
         {% endif %}
         <div class="shopItem__mainInfos">
           <h2 class="shopItem__name">{{ params.name }}</h2>
-          <p class="shopItem__price"> {{ params.priceDisplay }} </p>
+          <p class="shopItem__price"> {{ params.sizes[0].priceDisplay }} </p>
         </div>
 
-        <a href="/products/{{params.name}}/index.html">LINK TO PAGE</a>
           
         
         <p class="shopItem__collection">collection {{params.collection}}</p>
