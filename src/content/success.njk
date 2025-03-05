@@ -6,11 +6,15 @@ permalink: success/index.html
 
 {% block content %}
   <div
-  x-data="shop"
-  x-init="updateProductQuantity"
-  style="display: none;">
+    x-data="shop"
+    x-effect="syncCart"
+    x-init="success"
+    style="display: none;">
   </div>
 
-  <p>Thank you for your purshase. This has been a success.</p>
+  <div class="section-light">
+    <h1 class="title" style="padding-block: 20vh;">Thank you for your purchase</h1>
+  </div>
+
 
 {% endblock %}
