@@ -108,6 +108,7 @@ permalink: shop.html
             <p x-text="'Total : ' + totalPrice + '€'"></p>
             <button x-show="products.length" @click="checkout" class="cart__checkout">Checkout</button>
           </div>
+          <p x-show="error" style="color: red;" x-text="error"></p>
 
       </dialog>
 

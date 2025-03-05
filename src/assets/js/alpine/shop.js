@@ -3,6 +3,7 @@ const cart = document.querySelector("[data-cart]");
 export default () => {
   return {
     products: [],
+    error: "",
 
     get totalProducts() {
       return this.products.reduce((accum, item) => accum + item.quantity, 0);
@@ -30,7 +31,7 @@ export default () => {
           },
         });
         if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
+          throw new Error(response);
         }
   
       } catch (error) {
@@ -48,21 +49,27 @@ export default () => {
           },
         });
         if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
+          const errorText = await response.text();
+    
+          // Extract only the relevant error message
+          const match = errorText.match(/Error: (.+)/);
+          const cleanErrorMessage = match ? match[1] : "An unknown error occurred";
+    
+          throw new Error(cleanErrorMessage);
         }
 
         let data = await response.json();
         let stripeCheckoutUrl = data.sessionUrl;
 
         window.open(stripeCheckoutUrl);    
-      } catch (error) {
-        throw new Error(error);
+      } catch (err) {
+        this.error = err;
+        console.log(err)
       }
     },
 
     openCart() {
       cart.showModal();
-      console.log(this.products)
     },
 
     closeCart() {
@@ -79,7 +86,6 @@ export default () => {
 
     addToCart(data) {
       // build product object
-      console.log(data)
       let product = {
         productId: data.id,
         id: data.priceid,
