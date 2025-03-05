@@ -1,7 +1,11 @@
 // import dotenv
 import "dotenv/config";
+import products from "./src/_data/products.js"; // Use ES module import
 
 export default async function (eleventyConfig) {
+  // create a collection for products
+  /*eleventyConfig.addGlobalData("products", products);*/
+
   // avoid processing and watching files
   eleventyConfig.ignores.add("./src/assets/**/*");
   eleventyConfig.watchIgnores.add("./src/assets/**/*");
