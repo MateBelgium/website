@@ -26,6 +26,93 @@ permalink: shop.html
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
 
+    <!--CART-->
+    <div
+    x-data="shop" 
+    x-effect="syncCart"
+    class="grid-layout">
+
+      <!--Show Cart-->
+      <button
+        class="cart__Button"
+        x-cloak 
+        @click="openCart()">
+        <img src="../../assets/medias/imgs/basket.svg" alt="">
+        <span x-text="totalProducts" class="cart__number"></span>
+      </button>
+
+      <!--CART-->
+      <dialog data-cart class="cart__dialog">
+        <div class="cart__container">
+
+          <button @click="closeCart" class="closeCart__button"></button>
+
+          <div class="cartItems__container">
+
+            <!--names-->
+            <ul class="cartItems__list cartItems__names">
+              <li class="cartItem cartItem__name"><h2 class="cartItem__title">Product</h2></li>
+              <template
+                x-for="(item, index) in products"
+                :key="item.id">
+                <li class="cartItem cartItem__name">
+                  <h3 x-text="item.name"></h3>
+                </li>
+              </template>
+            </ul>
+            <!--quantity-->
+            <ul class="cartItems__list cartItems__quantity">
+              <li class="cartItem cartItem__quantity"><h2 class="cartItem__title">Quantity</h2></li>
+              <template
+                x-for="(item, index) in products"
+                :key="item.id">
+                <li class="cartItem cartItem__quantity">
+                  <p>
+                    <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="item.quantity"
+                    x-model.number="item.quantity"/>
+                  </p>
+                </li>
+              </template>
+            </ul>
+            <!--price-->
+            <ul class="cartItems__list cartItems__prices">
+              <li class="cartItem cartItem__price"><h2 class="cartItem__title">Price</h2></li>
+              <template
+              x-for="(item, index) in products"
+              :key="item.id">
+                <li class="cartItem cartItem__price">
+                  <p x-text="(item.price * item.quantity).toFixed(2) + '€'"></p>
+                </li>
+              </template>
+            </ul>
+            <!--delete-->
+            <ul class="cartItems__list cartItems__deletes">
+              <li class="cartItem cartItem__delete"><h2 class="cartItem__title" style="opacity: 0;">dd</h2></li>
+              <template
+              x-for="(item, index) in products"
+              :key="item.id">
+                <li class="cartItem cartItem__delete">
+                  <button @click="deleteFromCart(item.id)"></button>
+                </li>
+              </template>
+            </ul>
+            
+
+          </div>
+
+          <div class="cart__checkout">
+            <p x-text="'Total : ' + totalPrice + '€'"></p>
+            <button x-show="products.length" @click="checkout" class="cart__checkout">Checkout</button>
+          </div>
+
+      </dialog>
+
+    </div>
+
   </div>
 
 {% endblock %}
