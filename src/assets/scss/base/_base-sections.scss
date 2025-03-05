@@ -8,7 +8,7 @@
     content: "";
     display: block;
     position: absolute;
-    bottom: calc(var(--spacing-s) * -1 );
+    bottom: calc((var(--spacing-s) * -1 ) + 1px);
     width: 100%;
     height: var(--spacing-s);
     background-color: var(--color-white);
@@ -20,7 +20,7 @@
     content: "";
     display: block;
     position: absolute;
-    top: calc(var(--spacing-s) * -1 );
+    top: calc((var(--spacing-s) * -1 ) + 1px);
     width: 100%;
     height: var(--spacing-s);
     background-color: var(--color-white);
@@ -40,14 +40,14 @@
     }
     
     .section-light::after{
-        bottom: calc(var(--spacing-l) * -1 );
+        bottom: calc((var(--spacing-l) * -1 ) + 1px);
         height: var(--spacing-l);
         border-end-end-radius: var(--spacing-l);
         border-end-start-radius: var(--spacing-l);
     }
     
     .section-light::before{
-        top: calc(var(--spacing-l) * -1 );
+        top: calc((var(--spacing-l) * -1 ) + 1px);
         height: var(--spacing-l);
         border-start-end-radius: var(--spacing-l);
         border-start-start-radius: var(--spacing-l);
@@ -57,4 +57,12 @@
         padding-block-start: var(--spacing-l);
     }
 
+}
+
+.noBottom{
+    padding-bottom: 0;
+}
+
+.noBottom::after{
+    display: none;
 }

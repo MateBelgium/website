@@ -1,0 +1,336 @@
+.collectionIntro__title{
+    grid-area: 2 / 2 / -2 / -2;
+
+    width: auto;
+    height: 175px;
+    background-image: url("../img/ardennesLogoDark.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.collectionIntro__text{
+    grid-area: 3 / 2 / 4 / -2;
+    text-align: center;
+}
+
+.collectionIntro__bg{
+    grid-area: 4 / 2 / 5 / -2;
+
+    aspect-ratio: 16 / 9;
+
+    width: 100%;
+    height: auto;
+    background-image: url("../img/collectionIntroBg.png");
+    background-size: contain;
+    background-repeat: no-repeat; 
+}
+
+.collectionIntroVideo__container{
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-xxl);
+}
+
+.collectionIntroVideo__content{
+    grid-area: 2 / 2 / 5 / -2;
+}
+
+.collectionIntro__video img{
+    border-radius: var(--spacing-s);
+
+    aspect-ratio: 16 / 9;
+
+    width: 100%;
+    height: auto;
+}
+
+.collectionIntro__bird{
+
+    pointer-events: none;
+    
+    height: 70px;
+    width: 100%;
+
+    background-size: contain;
+    background-repeat: no-repeat; 
+
+    z-index: 2;
+}
+
+.videoBird1{
+    grid-area: 4 / 2 / 6 / 3;
+    
+    margin-top: -25%;
+
+    justify-self: flex-end;
+
+    background-image: url("../img/birdGrey1.svg");
+
+}
+
+.videoBird2{
+    grid-area: 1 / 6 / 3 / -2;
+
+    margin-top: -15%;
+
+    background-image: url("../img/birdGrey2.svg");
+    background-position: 100%;
+
+}
+
+.collectionIntroText__subtitle{
+    grid-area: 6 / 2 / 7 / -2;
+    color: var(--color-grey-500);
+    padding-top: var(--spacing-l);
+}
+
+.collectionIntroText__core{
+    grid-area: 7 / 2 / 8 / -2;
+    color: var(--color-grey-400);
+    padding-top: var(--spacing-s);
+}
+
+.collectionIntroVideo__container p:last-of-type{
+    grid-area: 8 / 3 / 9 / -2;
+}
+
+.collectionShop__container{
+    grid-row-gap: var(--spacing-s);
+}
+
+.collectionShop__subtitle{
+    grid-area: 1 / 2 / -2 / -2;
+}
+
+.collectionShopItems__container{
+
+    grid-area: 1 / 2 / 2 / -2;
+
+    aspect-ratio: 4 / 5;
+
+    position: relative;
+
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: var(--spacing-s);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.collectionShopItem{
+    background-size: cover;
+    background-position: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#colShop1:checked ~ .colShop1,
+#colShop2:checked ~ .colShop2,
+#colShop3:checked ~ .colShop3 {
+  opacity: 1;
+}
+
+.colShopImg-labels {
+    position: absolute;
+    bottom: 10px; /* Place labels below images */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2; /* Ensure labels are on top */
+}
+
+.colShopImg-labels label {
+    width: 12px;
+    height: 12px;
+    background: var(--color-grey-500);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+  
+  /* Highlight active label */
+#colShop1:checked ~ .colShopImg-labels label[for="colShop1"],
+#colShop2:checked ~ .colShopImg-labels label[for="colShop2"],
+#colShop3:checked ~ .colShopImg-labels label[for="colShop3"] {
+    background: var(--color-white);
+}
+
+.collectionShopButton{
+    grid-area: 2 / 3 / 3 / -3;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: var(--spacing-xl);
+}
+
+.collectionShopButton div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (min-width:768px){
+    .collectionIntro__text{
+        grid-area: 3 / 3 / 4 / -3;
+    }
+
+    .collectionIntroVideo__container{
+        padding-bottom: var(--spacing-xxxl);
+    }
+
+    .collectionIntro__bird{
+
+        height: 130px;
+        width: 100%;
+    
+    }
+
+    .videoBird1{
+        grid-area: 4 / 2 / 6 / 4;
+        margin-top: -10%;
+    }
+    
+    .videoBird2{
+        grid-area: 1 / 7 / 3 / -2;
+    }
+
+    .collectionIntroText__subtitle{
+        grid-area: 6 / 3 / 7 / -3;
+
+    }
+    
+    .collectionIntroText__core{
+        grid-area: 7 / 3 / 8 / -3;
+        padding-top: var(--spacing-m);
+    }
+
+    .collectionIntroVideo__container p:last-of-type{
+        grid-area: 8 / 3 / 9 / -3;
+    }
+
+    .collectionShopItems__container{
+
+        display: flex;
+        gap: var(--spacing-m);
+
+        aspect-ratio: 0;
+
+        border-radius: 0px;
+    }
+
+    .collectionShopItem{
+        position:relative;
+    
+        aspect-ratio: 4 / 5;
+
+        border-radius: var(--spacing-s);
+
+        opacity: 1;
+    }
+
+    .colShopImg-labels{
+        display: none;
+    }
+
+    .collectionShopButton{
+        grid-area: 2 / 5 / 3 / -5;
+    }
+    
+    .collectionShopButton div{
+        padding-inline: 0px;
+    }
+
+}
+
+@media all and (min-width:1024px){
+    .collectionIntro__title{
+        height: 250px;
+    }
+
+    .collectionIntro__text{
+        grid-area: 3 / 3 / 4 / -3;
+    }
+
+    .collectionIntroVideo__content{
+        grid-area: 2 / 3 / 5 / -3;
+    }
+
+    .collectionIntro__bird{
+
+        height: 200px;
+        width: 100%;
+    
+    }
+
+    .videoBird1{
+        grid-area: 4 / 2 / 6 / 4;
+        margin-top: -10%;
+        background-position: 50%;
+    }
+    
+    .videoBird2{
+        grid-area: 1 / 9 / 3 / -2;
+        background-position: 50%;
+    }
+
+    .collectionIntroText__subtitle{
+        grid-area: 6 / 3 / 7 / -3;
+    }
+
+    .collectionIntroText__core{
+        grid-area: 7 / 3 / 8 / 6;
+        padding-top: var(--spacing-l);
+    }
+
+    .collectionIntroVideo__container{
+        padding-bottom: 10%;
+    }
+
+    .collectionIntroVideo__container p:last-of-type{
+        grid-area: 7 / 6 / 8 / 10;
+    }
+
+    .collectionShop__subtitle{
+        grid-area: 1 / 3 / -2 / -3;
+
+    }
+
+    .collectionShopItems__container{
+        grid-area: 1 / 3 / 2 / -3;
+    }
+
+    .collectionShopButton{
+        grid-area: 2 / 6 / 3 / 6;
+    }
+
+    .collectionShopButton div{
+        grid-area: 2 / 6 / 3 / 6;
+        padding-inline: 0;
+        border-radius: var(--spacing-m);
+    }
+}
+
+@media all and (min-width:1440px){
+    
+    .collectionIntro__text{
+        grid-area: 3 / 4 / 4 / -4;
+    }
+
+    .collectionIntro__bg{
+        margin-top: -10%;
+    }
+}
