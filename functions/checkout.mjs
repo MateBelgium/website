@@ -20,23 +20,17 @@ function formatLineItems(items) {
 }
 
 async function checkProductsQuantity(products) {
-  try {
-    for (let i = 0; i < products.length; i++) {
-      const element = products[i];
-      const product = await stripe.products.retrieve(element.id)
+  for (let i = 0; i < products.length; i++) {
+    const element = products[i];
+    const product = await stripe.products.retrieve(element.id)
 
-      if(product.metadata.quantity <= 0){
-        console.log("oups")
-        throw new Error("Product : " + product.name + " is not available anymore");
-      }else if(product.metadata.quantity - element.quantityWanted < 0) {
-        throw new Error("Product : " + product.name + " has not enough stock left for your purchase (" + product.metadata.quantity + " left, " + element.quantityWanted + " wanted)");
-      }
-      
+    if(product.metadata.quantity <= 0){
+      throw new Error("Product : " + product.name + " is not available anymore");
+    }else if(product.metadata.quantity - element.quantityWanted < 0) {
+      throw new Error("Product : " + product.name + " has not enough stock left for your purchase (" + product.metadata.quantity + " left, " + element.quantityWanted + " wanted)");
     }
-    return;
-  } catch (err) {
-    throw new Error(err);
   }
+
 }
 
 async function createCheckout(request, context) {
@@ -68,8 +62,10 @@ async function createCheckout(request, context) {
     });
 
     return Response.json({ sessionUrl: session.url });
-  } catch (error) {
-    throw new Error(error);
+  } catch (err) {
+    console.error(err.message);
+
+    throw new Error(err.message)
   }
 
 
