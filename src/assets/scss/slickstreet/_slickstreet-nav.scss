@@ -5,6 +5,9 @@
 
     gap: var(--spacing-xs);
 
+    opacity: 0;
+    pointer-events: none;
+
 }
 
 .slickstreet__label {
