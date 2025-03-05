@@ -59,12 +59,17 @@ permalink: "/products/{{ product.name }}/index.html"
                 data-name="{{ item.name }}"
                 data-quantity="1"
                 data-id= {{item.id}}
+                data-price= {{item.priceAmount}}
                 class="buy__size"
                 {% if item.quantityLeft <= 0 %}disabled{% endif %}
                 >
                 {{item.size}}
             </button>
-            <p class="product__price">{{item.priceDisplay}}</p>
+            {% if item.quantityLeft <= 0 %}
+              <p class="product__price" style="color: red;">indisponnible</p>
+              {% else %}
+              <p class="product__price">{{item.priceDisplay}}</p>
+            {% endif %}
           </li>
         {% if loop.last %}</ul>{% endif %}
       {% endfor %}
@@ -90,30 +95,73 @@ permalink: "/products/{{ product.name }}/index.html"
     </div>
 
     <!--CART-->
-    <dialog data-cart>
-        <p><span x-text="totalProducts"></span> products in your cart</p>
-        <template 
-          x-for="(item, index) in products" 
-          :key="item.id">
-          <div>
-            <h2 x-text="item.name"></h2>
-            <p>
-              Quantity: 
-              <input 
-                type="number" 
-                min="1" 
-                max="10" 
-                value="item.quantity" 
-                x-model.number="item.quantity" />
-              <button @click="deleteFromCart(item.id)">Delete</button>
-            </p>
-          </div>
-        </template>
-        <p>
-          <button @click="closeCart">Continue Shopping</button>
-          <button x-show="products.length" @click="checkout">Checkout</button>
-          <button @click="updateProductQuantity">success</button>
-        </p>
+    <dialog data-cart class="cart__dialog">
+      <div class="cart__container">
+
+        <button @click="closeCart" class="closeCart__button"></button>
+
+        <div class="cartItems__container">
+
+          <!--names-->
+          <ul class="cartItems__list cartItems__names">
+            <li class="cartItem cartItem__name"><h2 class="cartItem__title">Product</h2></li>
+            <template
+              x-for="(item, index) in products"
+              :key="item.id">
+              <li class="cartItem cartItem__name">
+                <h3 x-text="item.name"></h3>
+              </li>
+            </template>
+          </ul>
+          <!--quantity-->
+          <ul class="cartItems__list cartItems__quantity">
+            <li class="cartItem cartItem__quantity"><h2 class="cartItem__title">Quantity</h2></li>
+            <template
+              x-for="(item, index) in products"
+              :key="item.id">
+              <li class="cartItem cartItem__quantity">
+                <p>
+                  <input
+                  type="number"
+                  min="1"
+                  max="10"
+                  value="item.quantity"
+                  x-model.number="item.quantity"/>
+                </p>
+              </li>
+            </template>
+          </ul>
+          <!--price-->
+          <ul class="cartItems__list cartItems__prices">
+            <li class="cartItem cartItem__price"><h2 class="cartItem__title">Price</h2></li>
+            <template
+            x-for="(item, index) in products"
+            :key="item.id">
+              <li class="cartItem cartItem__price">
+                <p x-text="item.price"></p>
+              </li>
+            </template>
+          </ul>
+          <!--delete-->
+          <ul class="cartItems__list cartItems__deletes">
+            <li class="cartItem cartItem__delete"><h2 class="cartItem__title" style="opacity: 0;">dd</h2></li>
+            <template
+            x-for="(item, index) in products"
+            :key="item.id">
+              <li class="cartItem cartItem__delete">
+                <button @click="deleteFromCart(item.id)"></button>
+              </li>
+            </template>
+          </ul>
+          
+
+        </div>
+
+        <div class="cart__checkout">
+          <p x-text="'Total : ' + totalPrice + '€'"></p>
+          <button x-show="products.length" @click="checkout" class="cart__checkout">Checkout</button>
+        </div>
+
     </dialog>
 
   </div>

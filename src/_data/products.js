@@ -48,7 +48,6 @@ async function getProducts() {
     });
 
     const formattedProducts = Array.from(productMap.values());
-    console.log(formattedProducts[0].sizes);
     return formattedProducts;
   } catch (err) {
     throw new Error(err);

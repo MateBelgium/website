@@ -2,6 +2,205 @@
 = CART
 ============ */
 
+.cart__dialog {
+
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    border: none;
+    background-color: transparent;
+
+    padding: 0;
+
+    width: 100%;
+    max-width: 420px;
+    
+}
+
+.cart__container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: var(--spacing-l);
+    
+    background-color: var(--color-background);
+    
+    border: solid 1px var(--fontcolor-title);
+    
+    padding: var(--spacing-l);
+    box-sizing: border-box;
+    width: 100%;
+    
+    font-size: var(--fontsize-xs);
+    font-family: var(--fontfamily-coreDM);
+    
+}
+
+.cart__item {
+    
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xs);
+    
+    width: 100%;
+    
+    
+}
+
+.cartItems__container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-block: var(--spacing-m);
+    padding-inline: var(--spacing-xs);
+    box-sizing: border-box;
+
+    border-block-end: solid 1px var(--fontcolor-title);
+
+}
+
+.cartItems__list {
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: var(--spacing-s);
+
+}
+
+.cartItem {
+
+    height: -webkit-fill-available;
+
+}
+
+.cartItem__title {
+    
+    font-size: var(--fontsize-s);
+    color: var(--color-text);
+    padding-block-end: 6px;
+    
+}
+
+.cartItem__name h3 {
+    
+    font-size: var(--fontsize-xs);
+    color: var(--color-text);
+    
+}
+.cartItem__quantity input {
+    
+    font-size: var(--fontsize-xs);
+    color: var(--color-text);
+    font-weight: 300;
+
+    background-color: var(--color-background);
+
+    border-radius: 0;
+    border: transparent;
+    padding: 0 var(--spacing-xs);
+
+    width: 30px;
+    
+}
+
+.cartItem__quantity input:focus {
+    
+    border-radius: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    
+}
+
+.cartItem__price > p {
+    
+    font-size: var(--fontsize-xs);
+    color: var(--color-text);
+    font-weight: medium;
+    
+}
+
+.cartItem__delete > button {
+    border: none;
+    background-color: transparent;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url(/assets/medias/imgs/cross.svg);
+    background-size: cover;
+
+    cursor: pointer;
+
+}
+
+.cart__checkout {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    gap: var(--spacing-l);
+
+    font-size: var(--fontsize-s);
+    font-weight: 800;
+
+}
+
+.cart__checkout button {
+
+    font-size: var(--fontsize-core);
+    font-family: var(--fontfamily-coreDM);
+    font-weight: 400;
+
+    width: fit-content;
+
+    color: var(--fontcolor-title);
+
+    padding: var(--spacing-s) var(--spacing-l);
+
+    background-color: var(--color-background);
+    border: solid 1px var(--color-grey-100);
+
+    cursor: pointer;
+
+}
+
+.closeCart__button {
+
+    border: none;
+    background-color: transparent;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url(/assets/medias/imgs/cross.svg);
+    background-size: cover;
+
+    cursor: pointer;
+
+}
+
 .cart__Button {
 
     position: fixed;
@@ -33,6 +232,52 @@
     padding: 3px;
 
     border-radius: 12px;
+
+}
+
+@media all and (min-width: 768px) {
+
+    .cart__Button {
+
+        width: 48px;
+        height: 48px;
+
+        right: var(--spacing-l);
+        bottom: var(--spacing-l);
+
+    }
+
+    .cart__number {
+
+        padding: 6px;
+
+        top: calc( -1 * var(--spacing-s));
+        right: calc( -1 * var(--spacing-s));
+
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .cart__Button {
+
+        width: 64px;
+        height: 64px;
+
+        right: var(--spacing-xl);
+        bottom: var(--spacing-xl);
+
+    }
+
+    .cart__number {
+
+        top: calc( -1 * var(--spacing-m));
+        right: calc( -1 * var(--mpacing-s));
+
+        padding: var(--spacing-xs);
+
+    }
 
 }
 
@@ -88,6 +333,9 @@
     justify-content: flex-end;
 
     padding-bottom: var(--spacing-l);
+
+    background-size: cover;
+    background-position: center;
 
 }
 

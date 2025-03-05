@@ -19,11 +19,14 @@
 
     z-index: 2;
 
+    background-size: cover;
+    background-position: center;
 }
 
 .product__img {
 
     background-size: cover;
+    background-position: center;
     grid-area: auto / 1 / auto / -1;
 
     padding-block-end: var(--spacing-xl);
@@ -326,12 +329,14 @@
     .wash {
     
         grid-area: auto / 7 / auto / 9;
+        padding-inline-end: 0;
     
     }
     
     .info {
     
         grid-area: auto / 7 / auto / 9;
+        padding-inline-start: 0;
     
     }
     

@@ -8,6 +8,17 @@ export default () => {
       return this.products.reduce((accum, item) => accum + item.quantity, 0);
     },
 
+    get totalPrice() {
+      return this.products.reduce((accum, item) => accum + item.quantity * parseFloat(item.price), 0).toFixed(2);
+    },
+
+    async success() {
+
+      await this.updateProductQuantity();
+      this.clearCart();
+
+    },
+
     async updateProductQuantity() {
 
       try {
@@ -51,6 +62,7 @@ export default () => {
 
     openCart() {
       cart.showModal();
+      console.log(this.products)
     },
 
     closeCart() {
@@ -61,15 +73,20 @@ export default () => {
       this.products = this.products.filter((item) => item.id !== id);
     },
 
+    clearCart() {
+      this.products = [];
+    },
+
     addToCart(data) {
       // build product object
-      console.log(data.id)
+      console.log(data)
       let product = {
         productId: data.id,
         id: data.priceid,
         priceId: data.priceid,
         name: data.name,
         quantity: parseInt(data.quantity, 10),
+        price: (parseInt(data.price, 10) / 100).toFixed(2)
       };
 
       // add to cart if id does not exist yet
