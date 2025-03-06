@@ -25,9 +25,9 @@ async function checkProductsQuantity(products) {
     const product = await stripe.products.retrieve(element.id)
 
     if(product.metadata.quantity <= 0){
-      throw new Error("Product : " + product.name + " is not available anymore");
+      throw new Error("%/%Product : " + product.name + " is not available anymore%/%");
     }else if(product.metadata.quantity - element.quantityWanted < 0) {
-      throw new Error("Product : " + product.name + " has not enough stock left for your purchase (" + product.metadata.quantity + " left, " + element.quantityWanted + " wanted)");
+      throw new Error("%/%Product : " + product.name + " has not enough stock left for your purchase (" + product.metadata.quantity + " left, " + element.quantityWanted + " wanted)%/%");
     }
   }
 

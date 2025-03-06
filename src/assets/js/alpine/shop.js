@@ -50,11 +50,8 @@ export default () => {
         });
         if (!response.ok) {
           const errorText = await response.text();
-
-          const match = errorText.split('at');
-          const cleanErrorMessage = match ? match[0] : "An unknown error occurred";
     
-          throw new Error(cleanErrorMessage);
+          throw new Error(errorText);
         }
 
         let data = await response.json();
@@ -62,7 +59,10 @@ export default () => {
 
         window.open(stripeCheckoutUrl);    
       } catch (err) {
-        const displayError = err.toString().replace("Error: ", "")
+        const errorText = err.toString()
+        const match = errorText.split("%/%");
+        const cleanErrorMessage = match[1];
+        const displayError = cleanErrorMessage;
         this.error = displayError;
       }
     },
