@@ -50,8 +50,8 @@ export default () => {
         });
         if (!response.ok) {
           const errorText = await response.text();
-          
-          const match = errorText.match(/Error: Product : .*?\)/);
+
+          const match = errorText.split('at');
           const cleanErrorMessage = match ? match[0] : "An unknown error occurred";
     
           throw new Error(cleanErrorMessage);
@@ -62,8 +62,8 @@ export default () => {
 
         window.open(stripeCheckoutUrl);    
       } catch (err) {
-        this.error = err;
-        console.log(err)
+        const displayError = err.toString().replace("Error: ", "")
+        this.error = displayError;
       }
     },
 
