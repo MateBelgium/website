@@ -1,7 +1,54 @@
+/* ==============
+= Animations
+============== */
+
+.moving-element-entry {
+    view-timeline: --parallax-entry block;
+
+    animation-timeline: --parallax-entry;
+    animation-name: --parallax-move-entry;
+    animation-fill-mode: both;
+    animation-range: entry 150px;
+
+}
+
+@keyframes --parallax-move-entry {
+    from {
+        transform: translateY(calc( -1 * var(--spacing-l)));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+/*
+.moving-element-exit {
+    view-timeline: --parallax-exit block;
+
+    animation-timeline: --parallax-exit;
+    animation-name: --parallax-move-exit;
+    animation-fill-mode: both;
+    animation-range: exit 150px;
+
+}
+
+@keyframes --parallax-move-exit {
+    from {
+        transform: translateY(var(--spacing-l));
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+  */
+/* ==============
+= Styling
+============== */
+
 .section-light{
     background-color: var(--color-white);
     padding-block: var(--spacing-xxl);;
     position: relative;
+
 }
 
 .section-light::after{
