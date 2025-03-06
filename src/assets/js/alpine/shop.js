@@ -40,7 +40,10 @@ export default () => {
     },
 
     async checkout() {
+      // Open a new window immediately (prevents popup blocking)
+      const newTab = window.open("", "_blank");
       try {
+
         const response = await fetch("/.netlify/functions/checkout", {
           method: "POST",
           body: JSON.stringify(this.products),
@@ -57,8 +60,15 @@ export default () => {
         let data = await response.json();
         let stripeCheckoutUrl = data.sessionUrl;
 
-        window.open(stripeCheckoutUrl);    
+        // Redirect the pre-opened tab to Stripe Checkout
+        if (newTab) {
+          newTab.location.href = stripeCheckoutUrl;
+        } else {
+          // Fallback: Open in the same window if blocked
+          window.location.href = stripeCheckoutUrl;
+        }
       } catch (err) {
+        newTab.close();
         const errorText = err.toString()
         const match = errorText.split("%/%");
         const cleanErrorMessage = match[1];
