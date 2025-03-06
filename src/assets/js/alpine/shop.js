@@ -50,10 +50,9 @@ export default () => {
         });
         if (!response.ok) {
           const errorText = await response.text();
-    
-          // Extract only the relevant error message
-          const match = errorText.match(/Error: (.+)/);
-          const cleanErrorMessage = match ? match[1] : "An unknown error occurred";
+          
+          const match = errorText.match(/Error: Product : .*?\)/);
+          const cleanErrorMessage = match ? match[0] : "An unknown error occurred";
     
           throw new Error(cleanErrorMessage);
         }
