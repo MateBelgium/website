@@ -66,7 +66,7 @@ permalink: "/products/{{ product.name }}/index.html"
                 {{item.size}}
             </button>
             {% if item.quantityLeft <= 0 %}
-              <p class="product__price" style="color: red;">indisponnible</p>
+              <p class="product__price" style="color: red;">unavailable</p>
               {% else %}
               <p class="product__price">{{item.priceDisplay}}</p>
             {% endif %}
