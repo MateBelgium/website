@@ -6,166 +6,83 @@ pagination:
 permalink: "/products/{{ product.name }}/index.html"
 ---
 
-{% extends "layouts/base.njk" %}
+{% extends "layouts/baseShopContext.njk" %}
 
 {% block content %}
 
-<div class="section-light">
+  <div class="section-light" >
 
-  <div
-    x-data="shop" 
-    x-effect="syncCart"
-    class="grid-layout">
+    <div class="grid-layout">
 
-    <!--Show Cart-->
-    <button
-      class="cart__Button"
-      x-cloak 
-      @click="openCart()">
-      <img src="../../assets/medias/imgs/basket.svg" alt="">
-      <span x-text="totalProducts" class="cart__number"></span>
-    </button>
+      <h1 class="title product__title">{{ product.name }}</h1>
 
-    <h1 class="title product__title">{{ product.name }}</h1>
+      <div 
+        class="product__img" 
+        style="background-image: url('{{ product.image }}');"
+        >
+        <a class="backToShop" href="/shop.html"> <<< back to shop</a>
+      </div>
 
-    <div 
-      class="product__img" 
-      style="background-image: url('{{ product.image }}');"
-      >
-      <a class="backToShop" href="/shop.html"> <<< back to shop</a>
+      <div 
+        class="product__subimg" 
+        style="background-image: url('{{ product.image }}');"
+        >
+      </div>
+
+      <div class="about textblock">
+        <h2 class="about__subtitle">About it</h2>
+        <p class="core about__text">This T-shirt features a bold back design, an embroidered cross on the chest, and a stylized collar label. Designed for a wide fit, it offers a relaxed and modern silhouette. <br> <br>
+        The model in the photo is 190 cm tall and wears a size L.</p>
+      </div>
+
+      <div class="product__buy">
+        <h2 class="subtitle">Buy this item</h2> <br> <br>
+        {% for item in product.sizes %}
+          {% if loop.first %}<ul class="buy__sizes">{% endif %}
+            <li class="buy__item">
+              <button 
+                  x-cloak
+                  @click="addToCart($el.dataset)" 
+                  data-priceid="{{ item.priceId }}"
+                  data-name="{{ item.name }}"
+                  data-quantity="1"
+                  data-id= {{item.id}}
+                  data-price= {{item.priceAmount}}
+                  class="buy__size"
+                  {% if item.quantityLeft <= 0 %}disabled{% endif %}
+                  >
+                  {{item.size}}
+              </button>
+              {% if item.quantityLeft <= 0 %}
+                <p class="product__price" style="color: red;">unavailable</p>
+                {% else %}
+                <p class="product__price">{{item.priceDisplay}}</p>
+              {% endif %}
+            </li>
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="info textblock">
+        <h2 class="info__subtitle">Product info</h2>
+        <p class="core info__text">
+          Composition: 100% organic cotton <br>
+          Ring compact spun, long staple <br>
+          Weight: 200g/m2</p>
+      </div>
+
+      <div class="wash textblock">
+        <h2 class="wash__subtitle">Washing info</h2>
+        <p class="core wash__text">Machine wash cold (30°C) with similar colors.</p>
+      </div>
+
+      <div class="shipping textblock">
+        <h2 class="shipping__subtitle">Shipping info</h2>
+        <p class="core shipping__text">Your order will be shipped within two weeks of purchase.</p>
+      </div>
+
     </div>
-
-    <div 
-      class="product__subimg" 
-      style="background-image: url('{{ product.image }}');"
-      >
-    </div>
-
-    <div class="about textblock">
-      <h2 class="about__subtitle">About it</h2>
-      <p class="core about__text">This T-shirt features a bold back design, an embroidered cross on the chest, and a stylized collar label. Designed for a wide fit, it offers a relaxed and modern silhouette. <br> <br>
-      The model in the photo is 190 cm tall and wears a size L.</p>
-    </div>
-
-    <div class="product__buy">
-      <h2 class="subtitle">Buy this item</h2> <br> <br>
-      {% for item in product.sizes %}
-        {% if loop.first %}<ul class="buy__sizes">{% endif %}
-          <li class="buy__item">
-            <button 
-                x-cloak
-                @click="addToCart($el.dataset)" 
-                data-priceid="{{ item.priceId }}"
-                data-name="{{ item.name }}"
-                data-quantity="1"
-                data-id= {{item.id}}
-                data-price= {{item.priceAmount}}
-                class="buy__size"
-                {% if item.quantityLeft <= 0 %}disabled{% endif %}
-                >
-                {{item.size}}
-            </button>
-            {% if item.quantityLeft <= 0 %}
-              <p class="product__price" style="color: red;">unavailable</p>
-              {% else %}
-              <p class="product__price">{{item.priceDisplay}}</p>
-            {% endif %}
-          </li>
-        {% if loop.last %}</ul>{% endif %}
-      {% endfor %}
-    </div>
-
-    <div class="info textblock">
-      <h2 class="info__subtitle">Product info</h2>
-      <p class="core info__text">
-        Composition: 100% organic cotton <br>
-        Ring compact spun, long staple <br>
-        Weight: 200g/m2</p>
-    </div>
-
-    <div class="wash textblock">
-      <h2 class="wash__subtitle">Washing info</h2>
-      <p class="core wash__text">Machine wash cold (30°C) with similar colors.</p>
-    </div>
-
-    <div class="shipping textblock">
-      <h2 class="shipping__subtitle">Shipping info</h2>
-      <p class="core shipping__text">Your order will be shipped within two weeks of purchase.</p>
-    </div>
-
-    <!--CART-->
-    <dialog data-cart class="cart__dialog">
-      <div class="cart__container">
-
-        <button @click="closeCart" class="closeCart__button"></button>
-
-        <div class="cartItems__container">
-
-          <!--names-->
-          <ul class="cartItems__list cartItems__names">
-            <li class="cartItem cartItem__name"><h2 class="cartItem__title">Product</h2></li>
-            <template
-              x-for="(item, index) in products"
-              :key="item.id">
-              <li class="cartItem cartItem__name">
-                <h3 x-text="item.name"></h3>
-              </li>
-            </template>
-          </ul>
-          <!--quantity-->
-          <ul class="cartItems__list cartItems__quantity">
-            <li class="cartItem cartItem__quantity"><h2 class="cartItem__title">Quantity</h2></li>
-            <template
-              x-for="(item, index) in products"
-              :key="item.id">
-              <li class="cartItem cartItem__quantity">
-                <p>
-                  <input
-                  type="number"
-                  min="1"
-                  max="10"
-                  value="item.quantity"
-                  x-model.number="item.quantity"/>
-                </p>
-              </li>
-            </template>
-          </ul>
-          <!--price-->
-          <ul class="cartItems__list cartItems__prices">
-            <li class="cartItem cartItem__price"><h2 class="cartItem__title">Price</h2></li>
-            <template
-            x-for="(item, index) in products"
-            :key="item.id">
-              <li class="cartItem cartItem__price">
-                <p x-text="(item.price * item.quantity).toFixed(2) + '€'"></p>
-              </li>
-            </template>
-          </ul>
-          <!--delete-->
-          <ul class="cartItems__list cartItems__deletes">
-            <li class="cartItem cartItem__delete"><h2 class="cartItem__title" style="opacity: 0;">dd</h2></li>
-            <template
-            x-for="(item, index) in products"
-            :key="item.id">
-              <li class="cartItem cartItem__delete">
-                <button @click="deleteFromCart(item.id)"></button>
-              </li>
-            </template>
-          </ul>
-          
-
-        </div>
-
-        <div class="cart__checkout">
-          <p x-text="'Total : ' + totalPrice + '€'"></p>
-          <button x-show="products.length" @click="checkout" class="cart__checkout">Checkout</button>
-        </div>
-        <p x-show="error" style="color: red;" x-text="error"></p>
-
-    </dialog>
 
   </div>
-
-</div>
 
 {% endblock %}

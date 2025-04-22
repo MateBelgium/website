@@ -104,6 +104,8 @@ export default () => {
         price: (parseInt(data.price, 10) / 100).toFixed(2)
       };
 
+      // popup for a better feedback
+
       // add to cart if id does not exist yet
       // otherwise update quantity
       if (!this.products.some((item) => item.id === product.id)) {
