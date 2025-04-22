@@ -1,5 +1,5 @@
 const cart = document.querySelector("[data-cart]");
-
+//update
 export default () => {
   return {
     products: [],
