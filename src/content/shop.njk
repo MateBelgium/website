@@ -10,6 +10,7 @@ permalink: shop.html
 
   <div class="section-light">
 
+    <!--
     {% for item in products %}
       {% if loop.first %}<ul class="shop__list">{% endif %}
         <li class="shop__item">
@@ -25,14 +26,15 @@ permalink: shop.html
         </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
-
-    <!--CART-->
+    -->
+    <!--
+    CART
     <div
     x-data="shop" 
     x-effect="syncCart"
     class="grid-layout">
 
-      <!--Show Cart-->
+      Show Cart
       <button
         class="cart__Button"
         x-cloak 
@@ -41,7 +43,7 @@ permalink: shop.html
         <span x-text="totalProducts" class="cart__number"></span>
       </button>
 
-      <!--CART-->
+      CART
       <dialog data-cart class="cart__dialog">
         <div class="cart__container">
 
@@ -49,7 +51,7 @@ permalink: shop.html
 
           <div class="cartItems__container">
 
-            <!--names-->
+            names
             <ul class="cartItems__list cartItems__names">
               <li class="cartItem cartItem__name"><h2 class="cartItem__title">Product</h2></li>
               <template
@@ -60,7 +62,7 @@ permalink: shop.html
                 </li>
               </template>
             </ul>
-            <!--quantity-->
+            quantity
             <ul class="cartItems__list cartItems__quantity">
               <li class="cartItem cartItem__quantity"><h2 class="cartItem__title">Quantity</h2></li>
               <template
@@ -78,7 +80,7 @@ permalink: shop.html
                 </li>
               </template>
             </ul>
-            <!--price-->
+            price
             <ul class="cartItems__list cartItems__prices">
               <li class="cartItem cartItem__price"><h2 class="cartItem__title">Price</h2></li>
               <template
@@ -89,7 +91,7 @@ permalink: shop.html
                 </li>
               </template>
             </ul>
-            <!--delete-->
+            delete
             <ul class="cartItems__list cartItems__deletes">
               <li class="cartItem cartItem__delete"><h2 class="cartItem__title" style="opacity: 0;">dd</h2></li>
               <template
@@ -112,6 +114,20 @@ permalink: shop.html
 
       </dialog>
 
+    </div>
+    -->
+  
+
+    <div style="display: flex; flex-direction: column; align-items: center; width: fit-content; margin-inline: auto;">
+      <h1 class="title">Etretat</h1>
+      <span style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
+        <h2 class="subtitle">Collection 02</h2>
+        <h2 class="subtitle">Summer - Fall</h2>
+      </span>
+      
+      <p style="font-family: 'Etretat Classic'; font-size: 3rem; margin-block: 10rem;">COMING SOON</p>
+
+      <p>Checkout our instagram for the latest news : <a href="https://www.instagram.com/matebelgium?igsh=MTl6bmV6dGs4NG01ZQ==">@matebelgium</a></p>
     </div>
 
   </div>
