@@ -79,13 +79,12 @@
 
 .collectionIntroText__subtitle{
     grid-area: 6 / 2 / 7 / -2;
-    color: var(--color-grey-500);
     padding-top: var(--spacing-l);
 }
 
 .collectionIntroText__core{
     grid-area: 7 / 2 / 8 / -2;
-    color: var(--color-grey-400);
+    color: var(--color-grey-500);
     padding-top: var(--spacing-s);
 }
 
@@ -187,11 +186,11 @@ input[type="radio"] {
 .collectionAboutHeaderImg{
     width: 100%;
     height: auto;
-    aspect-ratio: 18 / 9;
+    aspect-ratio: 22 / 9;
 
     margin-top: calc(-1 * var(--spacing-s));
 
-    background-image: url("../img/treeRoots2.png");
+    background-image: url("../medias/imgs/treeRoots.svg");
     background-size: contain;
     background-repeat: no-repeat; 
 }
@@ -232,13 +231,9 @@ input[type="radio"] {
     grid-area: 6 / 2 / 7 / -2;
 }
 
-.collectionAbout__subtitle{
-    color: var(--color-grey-500);
-}
-
 .collectionAbout__core{
     padding-top: var(--fontsize-s);
-    color: var(--color-grey-400);
+    color: var(--color-grey-500);
 }
 
 .collectionDesign__bird{
