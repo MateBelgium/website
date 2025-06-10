@@ -1,7 +1,18 @@
 .topSpace {
 
     opacity: 0;
-    height: 3.2rem;
+    height: 2.9rem; //was 3.2rem
+
+}
+
+@media all and (min-width: 768px){
+
+    .topSpace {
+
+        opacity: 0;
+        height: 3rem;
+    
+    }
 
 }
 
