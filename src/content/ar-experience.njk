@@ -1,0 +1,53 @@
+---
+permalink: ar-experience.html
+hideTopSpace: true
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <div class="UI__container">
+        <div class="UI__clickHere">
+            <p>Click Here</p>
+        </div>
+
+        <div class="UI__posterScan">
+            <p>Searching for poster...</p>
+        </div>
+
+    </div>
+
+    
+    <a-scene mindar-image="imageTargetSrc: assets/medias/ar/refTest.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+          <img id="chess" src="assets/medias/ar/chessCircle.png"/>
+          <video id="video1" src="assets/medias/ar/V03.mp4" 
+          loop  
+          playsinline 
+          crossorigin="anonymous"></video>
+        </a-assets>
+  
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        
+        <a-entity id="detector" mindar-image-target="targetIndex: 0; filterMinCF: 0.0001; filterBeta: 0.9; missTolerance: 10;">
+            <a-video src="#video1" height="2" width="1.1"position="0 0 0" style="z-index: 2;"></a-video> 
+            <!-- 
+                <a-plane src="#card" position="0 0 0" height="1.1" width="0.8" rotation="0 0 0"></a-plane>
+                <a-plane src="#chess" position="0 0 0" height="2" width="2" rotation="0 0 0" material="transparent: true; alphaTest: 0.1" animation="property: rotation; to: 0 0 360; dur: 3000; easing: linear; loop: true" style="z-index: 3;"></a-plane>
+                -->
+            </a-entity>
+
+        <a-entity id="detector" mindar-image-target="targetIndex: 1; filterMinCF: 0.0001; filterBeta: 0.9; missTolerance: 10; ">
+            <!-- 
+            <a-video src="#video1" height="1.1" width="0.8"position="0 0 0" style="z-index: 2;"></a-video> 
+                <a-plane src="#card" position="0 0 0" height="1.1" width="0.8" rotation="0 0 0"></a-plane>
+                -->
+            <a-plane src="#chess" position="0 0 0" height="2" width="2" rotation="0 0 0" material="transparent: true; alphaTest: 0.1" animation="property: rotation; to: 0 0 360; dur: 3000; easing: linear; loop: true" style="z-index: 3;"></a-plane>
+        </a-entity>
+      </a-scene>
+
+{% endblock %}
