@@ -79,7 +79,7 @@ function isMobileDevice() {
             }
         }
 
-        if (window.location.pathname === "/ar") {
+        if (["/ar", "/ar-experience"].includes(window.location.pathname)) {
             window.location.href = "/arerror";
         }
     }
