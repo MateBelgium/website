@@ -63,17 +63,17 @@
     justify-self: end;
 
     width: 100%;
-    height: 7.5vh;
+    height: 10vh;
 
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--spacing-s) var(--spacing-s) 0 0;
 
-    font-size: 5vw;
-    font-weight: 500;
+    font-size: var(--fontsize-m);
+    font-weight: var(--fontweight-core);
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
 
     color: #1c1c1c75;
-    background-color: #fffdf8;
+    background-color: var(--color-white);
 
     transition: 0.5s;
 }
@@ -87,23 +87,46 @@
     
     justify-self: start;
     
-    padding: 12px;
-    margin-top: 75px;
+    padding: var(--spacing-s);
+    margin-bottom: var(--spacing-m);
     
     width: 25vw;
     height: 2.5vh;
     
-    border-radius: 24px;
+    border-radius: var(--spacing-l);
     
-    font-size: 3.5vw;
-    font-weight: 600;
+    font-size: var(--fontsize-m);
+    font-weight: var(--fontweight-subtitle);
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
     
-    color: #1c1c1c;
-    background-color: #fffdf8;
+    color: var(--color-grey-100);
+    background-color: var(--color-white);
 
     transition: 0.5s;
+}
+
+.UI__posterLaunch{
+    display: none;
+
+    padding: var(--spacing-m    );
+
+    border-radius: var(--spacing-xxl);
+
+    background-color: var(--color-red);
+
+    font-size: var(--fontsize-m);
+    font-weight: var(--fontweight-subtitle);
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    
+    color: var(--color-white);
+
+    cursor: pointer;
+}
+
+.UI__posterLaunch:hover{
+    background-color: var(--color-red-400);
 }
 
 .mindar-ui-scanning{
