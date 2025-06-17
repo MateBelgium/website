@@ -1,0 +1,16 @@
+:root{
+    --banner-height: calc(100vh / 4.5);
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+}
+
+.bannerImage{
+    height: var(--banner-height);
+    width: 100%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
