@@ -14,13 +14,10 @@
 
     --fontsize-jumbo: calc(128 / 16 * 1rem);
 
-    --fontsize-footer: calc(224 / 16 * 1rem);
-
     /* mobile variables */
     --fontsize-core: var(--fontsize-xs);
     --fontsize-subtitle: var(--fontsize-s);
     --fontsize-title: var(--fontsize-l);
-    --fontsize-title-footer: var(--fontsize-xl);
     --fontsize-buttons: var(--fontsize-core);
 
     --titlelineheight: 36px;
@@ -31,7 +28,6 @@
         --fontsize-core: var(--fontsize-s);
         --fontsize-subtitle: var(--fontsize-m);
         --fontsize-title: var(--fontsize-xl);
-        --fontsize-title-footer: var(--fontsize-xxl);
         --fontsize-buttons: var(--fontsize-core);
         --titlelineheight: 64px;
     }
@@ -42,7 +38,6 @@
         --fontsize-core: var(--fontsize-s);
         --fontsize-subtitle: var(--fontsize-ml);
         --fontsize-title: var(--fontsize-xl);
-        --fontsize-title-footer: var(--fontsize-jumbo);
         --fontsize-buttons: var(--fontsize-core);
     }   
     
@@ -52,7 +47,6 @@
         --fontsize-core: var(--fontsize-m);
         --fontsize-subtitle: var(--fontsize-l);
         --fontsize-title: var(--fontsize-xxl);
-        --fontsize-title-footer: var(--fontsize-footer);
         --fontsize-buttons: var(--fontsize-core);
         --titlelineheight: 110px;
     }   
@@ -97,8 +91,9 @@
 
     /* mobile variables */
     --fontcolor-core: var(--color-grey-300);
-    --fontcolor-core-dark: var(--color-white);
+    --fontcolor-core-dark: var(--color-grey-500);
     --fontcolor-subtitle: var(--color-grey-300);
+    --fontcolor-subtitle-dark: var(--color-white);
     --fontcolor-title: var(--color-grey-100);
     --fontcolor-title-dark: var(--color-white);
     --fontcolor-buttons: var(--color-grey-100);    
@@ -122,8 +117,8 @@
 
 }
 
-.title-footer{
-    font-size: var(--fontsize-title-footer);
+.title-dark{
+    font-size: var(--fontsize-title);
     font-family: var(--fontfamily-title);
     font-weight: var(--fontweight-title);
     color: var(--fontcolor-title-dark);
@@ -139,6 +134,15 @@
 
 }
 
+.subtitle-dark {
+
+    font-size: var(--fontsize-subtitle);
+    font-family: var(--fontfamily-subtitle);
+    font-weight: var(--fontweight-subtitle);
+    color: var(--fontcolor-subtitle-dark);
+
+}
+
 .core {
 
     font-size: var(--fontsize-core);
@@ -148,12 +152,21 @@
 
 }
 
+.core-dark {
+
+    font-size: var(--fontsize-core);
+    font-family: var(--fontfamily-core);
+    font-weight: var(--fontweight-core);
+    color: var(--fontcolor-core-dark);
+
+}
+
 .coreDM {
 
     font-size: var(--fontsize-core);
     font-family: var(--fontfamily-coreDM);
     font-weight: var(--fontweight-core);
-    color: var(--fontcolor-core-dark);
+    color: var(--fontcolor-subtitle-dark);
 
 }
 

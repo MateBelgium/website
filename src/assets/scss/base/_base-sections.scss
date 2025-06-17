@@ -1,3 +1,12 @@
+:root{
+
+    --roundEdge-height: var(--spacing-s);
+
+    @media all and (min-width: 768px){
+        --roundEdge-height: var(--spacing-l)
+    }
+}
+
 .section-light{
     background-color: var(--color-white);
     padding-block: var(--spacing-xxl);;
@@ -30,7 +39,15 @@
 
 .section-dark{
     background-color: var(--color-background-dark);
-    padding-block-start: var(--spacing-s);
+    padding-block: var(--roundEdge-height);
+}
+
+.section-dark .coreDM{
+    color: var(--color-grey-500);
+}
+
+.section-dark .subtitle{
+    color: var(--color-white);
 }
 
 @media all and (min-width: 768px) {
@@ -53,10 +70,15 @@
         border-start-start-radius: var(--spacing-l);
     }
     
-    .section-dark{
-        padding-block-start: var(--spacing-l);
-    }
 
+}
+
+.noTop{
+    padding-top: 0;
+}
+
+.noTop::before{
+    display: none;
 }
 
 .noBottom{

@@ -19,7 +19,9 @@
   
   {% include "partials/mainnav.njk" %}
   
-  <div class="topSpace"></div>
+  {% if not hideTopSpace %}
+    <div class="topSpace"></div>
+  {% endif %}
 
   {% block content %}{% endblock %}
 
