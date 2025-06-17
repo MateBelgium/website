@@ -138,12 +138,10 @@ COLLECTION
     display: flex;
     justify-content: center;
 
-    padding-block-start: calc(var(--roundEdge-height) * 2);
-    padding-block-end: var(--roundEdge-height);
+    padding-block-start : var(--spacing-l)
 }
 
-.homepage--headerImg{
-    height: 150px;
+.homepage__headerImg{
     width: 100%;
 
     background-repeat: no-repeat;
@@ -156,12 +154,21 @@ COLLECTION
     position: absolute;
     width: 100%;
     max-width: 1000px;
-    height: calc(var(--banner-height) - var(--roundEdge-height));
-
     background-repeat: no-repeat;
-    background-size: 30%;
+    background-size: 50%;
     
-    background-position: 50% 50%;
+    background-position: 50% 40%;
+}
+
+@media all and (min-width: 768px) {
+
+    .homepage__headerText{
+        background-size: 25%;
+        
+        background-position: 50% 35%;
+    }
+
+
 }
 
 .homepageCollection__container{
@@ -191,7 +198,6 @@ COLLECTION
     width: 100%;
     overflow: hidden;
 
-    border-radius: 24px;
 }
 
 input[type="radio"] {
