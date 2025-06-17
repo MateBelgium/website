@@ -8,33 +8,32 @@ permalink: index.html
 
 <div class="section-light">
 
-    <div class="grid-layout homePageIntro__container ">
-        <div class="homepageIntroText__content">
-            <h1 class="title">Explore our <br> universe</h1>
-            <p class="core">More than just a clothing brand, we create immersive experiences. Whether you're drawn to high-quality garments, cinematic short films, compelling storytelling, or our fashion magazine, each collection opens the door to a universe of creativity.
-                <br> <br>
-                From physical to digital, fleeting moments to timeless pieces, and interactive designs to lasting works of art, we blur the lines between fashion, storytelling, and artistic expression. Every detail is thoughtfully crafted to make your journey with us truly unforgettable.
+    <div class="homePageIntro--container grid-layout">
+            <span class="homepage__title">
+              <h1 class="title">Consider the unseen</h1>
+              <img class="homepage__logo" src="../assets/img/Mate_Eye.svg" alt="">
+            </span>
+            <p class="core homepage__intro">Mate, ne se propose pas juste de vendre des vêtements, mais de faire briller des endroits au travers de sa vision. <br><br> Chaque collection s’articule autour d’un lieu et de la thématique principale qui est extraite de ce dernier. Ces endroits mises en valeur par la marque sont chargés d’histoire, ont une esthétique marquantes et surtout ont été oublié par le temps ou n’ont jamais été mis dans la lumières. <br><br> Mate fait sortir ce qui il y a de plus beau et de plus intéressant dans ces endroits abandonnés, oubliés ou simplement cachés.
             </p>
-            <a href="/about" class="homepageIntroButton">
+            <!--
+            <a href="" class="homepageIntroButton disabledB">
                 <div class="button">
                     <p class="buttonsDark">discover more</p>
                 </div>
             </a>
-        </div>
-        
-        <div class="homepageIntroImage__content">
-            <div class="birdImg1"></div>
-            <div class="birdImg2"></div>
-        </div>
-
+            -->
     </div>
 
 </div>
 
 <div class="section-dark">
 
-  <div class="homepageCollection__block">
-    <p class="subtitle">↓ Latest Collection ↓</p>
+  <div class="homepageCollection--header">
+    <p class="coreDM">Dernière collection</p>
+  </div>
+  <div class="homepage--header">
+    <div class="homepage--headerText" style="background-image: url(../assets/img/Etretat_title.png);"></div>
+    <div class="homepage--headerImg" style="background-image: url(../assets/img/etretat_bg.jpg);"></div>
   </div>
 
 </div>
@@ -45,12 +44,14 @@ permalink: index.html
 </div>
 
 <div class="section-light">
-    <div class="grid-layout homepageCollection__container ">
-        <div class="homepageCollectionText__content">
-            <h2 class="subtitle">Endless forests, a landscape seemingly knowing only two seasons, and a cold wind as its sole breath.</h2>
-            <p class="core">The rain and mist are the only constants in these landscapes, shifting in an endless cycle. At first, the Ardennes seem untouched by warmth—yet, beneath the quiet, there's a sense of belonging. You feel it in the people, in the simple joys of life, in the unspoken connection of shared moments. No matter where you're from, this place feels like home.
+    <div class="homepageCollection--container grid-layout">
+        <div class="homepageCollectionText--content">
+            <h2 class="subtitle">Des falaises vertigineuses faisant face à la mer, localisé en Normandie en France, un paysage unique que vous ne trouverez pas ailleurs.</h2>
+            <p class="core">Nous avons lancé notre ligne dans le passé, honorant l'art de la pêche qui nourrissait autrefois l'esprit de cette région.
             <br><br>
-            Chasing that feeling, four friends ventured into the dense forests of the Belgian Ardennes. What started as a search for adventure became something more, a discovery that these mist-covered woods hold far more secrets than they reveal...
+            Autrefois vue à travers les yeux de peintres célèbres, nous avons réinterprété la région à travers nos propres coups de pinceau.
+            <br><br>
+            Présenté comme un bord de mer ensoleillé avec des collines verdoyantes, nous avons découvert son vrai caractère, enveloppé de brume, sculpté par le vent et façonné par une mer agitée.
             </p>
         </div>
 
@@ -60,9 +61,9 @@ permalink: index.html
             <input type="radio" id="hpCol2" name="hpColImg-selector">
             <input type="radio" id="hpCol3" name="hpColImg-selector">
 
-            <div class="homepageCollectionImage__content hpCol1" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
-            <div class="homepageCollectionImage__content hpCol2" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
-            <div class="homepageCollectionImage__content hpCol3" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
+            <div class="homepageCollectionImage--content hpCol1" style="background-image: url(../assets/img/hatPackShot2.jpg);"></div>
+            <div class="homepageCollectionImage--content hpCol2" style="background-image: url(../assets/img/tshirtPackShot4.jpg);"></div>
+            <div class="homepageCollectionImage--content hpCol3" style="background-image: url(../assets/img/tshirtPackShot2.jpg);"></div>
 
             <div class="hpColImg-labels">
                 <label for="hpCol1"></label>
@@ -78,7 +79,7 @@ permalink: index.html
 
     <div class="homepageCollection__block">
       <a href="/collection">
-        <p class="subtitle">>> Click Here <<</p>
+        <p class="coreDM">L'équipe</p>
       </a>
     </div>
     
@@ -92,14 +93,15 @@ permalink: index.html
 
         <div class="homepageAboutText__content">
             <h1 class="title">Meet mate</h1>
-            <p class="core">We're a group of friends combining our skills in graphic design, web development, and filmmaking with a shared passion for clothing to create something unique: a clothing brand that goes beyond fashion.
-                <br><br>
-                Each of us brings our own strengths, allowing this project to take shape in countless ways, blending creativity, storytelling, and design into every collection.</p>
-            <a href="/about" class="homepageAboutButton">
+            <p class="core">Mate Belgium est une marque de vêtements fondée en juin 2023, née de l’envie partagée de quatre amis de collaborer autour d’un projet artistique. <br> Très vite, l’univers de la mode s’est imposé comme une évidence : un terrain d’expression qui nous permet de réunir nos passions pour la création de contenu, l’identité visuelle, le design, le stylisme… En somme, façonner un univers artistique unique autour de chaque collection.
+            <br><br>Au-delà de la mode, notre moteur est clair : mettre en lumière ce qui reste trop souvent dans l’ombre. C’est cette volonté qui guide chacune de nos créations.</p>
+            <!--
+            <a href="" class="homepageAboutButton disabledB">
                 <div class="button invertButton">
                     <p class="buttons">learn more</p>
                 </div>
             </a>
+            -->
         </div>
 
         <div class="homepageAboutImage__container">

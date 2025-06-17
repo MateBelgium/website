@@ -5,45 +5,132 @@
     55%, 100% { opacity: 0; }   /* Fade out smoothly (1 to 0) */
 }
 
-.homepageIntroText__content{
-    display: flex;
-    flex-direction: column;
+/* ==================
+INTRO
+================== */
 
-    gap: 36px;
+.homepage__title {
 
-    grid-area: 2 / 2 / -2 / -2;
+    position: relative;
+
+    text-align: center;
+    grid-area: 1 / 2 / 2 / -2;
+
+    display: block;
+
+    margin-bottom: var(--spacing-xxxl);
+
 }
 
-.homepageIntroText__content p{
-    max-width: 600px;
+.homepage__logo {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -40%);
+
 }
 
-.homepageIntroImage__content{
-    display: none;
-}
+.homepage__intro {
 
-.birdImg1{
-    margin-top: var(--spacing-xl);
-    width: 250px;
-    height: 175px;
-    background-image: url("../img/birdBlack1.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+    grid-area: 3 / 2 / 4 / -2;
 
-.birdImg2{
-    margin-bottom: var(--spacing-xl);
-    width: 250px;
-    height: 175px;
-    background-image: url("../img/birdBlack2.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+    margin-bottom: var(--spacing-xxxl);
+
 }
 
 .homepageIntroButton{
     display: flex;
     justify-content: center;
+
+    grid-area: 5 / 6 / 6 / -6;
+    margin-inline: auto;
 }
+
+@media all and (min-width: 768px){
+
+    .homepage__title {
+
+        grid-area: 1 / 3 / 2 / -3;
+
+    }
+
+    .homepage__logo {
+
+        width: 72px;
+
+    }
+
+    .homepage__intro {
+
+        grid-area: 3 / 4 / 4 / -4;
+    }
+
+    .homepageIntroButton{
+        grid-area: 5 / 4 / 6 / -4;
+    }
+
+}
+
+@media all and (min-width: 1024px){
+
+    .homepage__title {
+
+        grid-area: 1 / 4 / 2 / -4;
+
+    }
+
+    .homepage__logo {
+
+        width: 96px;
+
+    }
+
+    .homepage__intro {
+
+        grid-area: 3 / 5 / 4 / -5;
+
+    }
+
+    .homepageIntroButton{
+
+        grid-area: 5 / 3 / 6 / -3;
+
+    }
+
+}
+
+@media all and (min-width: 1440px){
+
+    .homepage__title {
+
+        grid-area: 1 / 4 / 2 / -4;
+
+    }
+
+    .homepage__logo {
+
+        width: 144px;
+
+    }
+
+    .homepage__intro {
+
+        grid-area: 3 / 5 / 4 / -5;
+
+    }
+
+    .homepageIntroButton{
+
+        grid-area: 5 / 6 / 6 / -6;
+    }
+
+}
+
+/* ==================
+COLLECTION
+================== */
 
 .homepageCollection__block{
     width: 100%;
@@ -55,12 +142,14 @@
     padding-block-end: var(--roundEdge-height);
 }
 
-.homepageCollection__header .subtitle{
-    height: 100%;
-}
+.homepage--headerImg{
+    height: 150px;
+    width: 100%;
 
-.homepage__headerImg{
-    background-position: 50% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: 50% 55%;
 }
 
 .homepage__headerText{
@@ -70,7 +159,7 @@
     height: calc(var(--banner-height) - var(--roundEdge-height));
 
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 30%;
     
     background-position: 50% 50%;
 }
