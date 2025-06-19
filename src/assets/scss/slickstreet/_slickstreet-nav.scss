@@ -1,7 +1,8 @@
 .slickstreet__container {
 
-    display: none;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     gap: var(--spacing-xs);
 
@@ -10,7 +11,7 @@
 .slickstreet__label {
 
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     align-items: center;
     justify-content: flex-start;
@@ -70,15 +71,17 @@
 
     .slickstreet__container {
 
-        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-m);
     
     }
 
     
     .slickstreet__label {
 
-        gap: var(--spacing-m);
+        gap: var(--spacing-s);
         font-size: var(--fontsize-m);
+        flex-direction: row;
 
     }
     
