@@ -1,12 +1,12 @@
 .slickstreet__container {
 
-    display: none;
+    //display: none;
     flex-direction: row;
 
     gap: var(--spacing-xs);
 
-    opacity: 0;
-    pointer-events: none;
+    //opacity: 0;
+    //pointer-events: none;
 
 }
 
@@ -41,6 +41,13 @@
 .slick__input:checked ~ .mainnav__container:has(.slick__label) .slick__label {
 
     color: var(--color-green-300);
+
+}
+
+.slick__input:checked ~ .section__video .video__slick {
+
+    z-index: 2;
+
 
 }
 
