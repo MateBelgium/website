@@ -35,6 +35,6 @@
     "stripe": "^17.6.0"
   },
   "devDependencies": {
-    "netlify-cli": "^18.1.0"
+    "netlify-cli": "^22.1.3"
   }
 }
