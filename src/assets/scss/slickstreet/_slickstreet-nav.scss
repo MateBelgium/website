@@ -5,9 +5,6 @@
 
     gap: var(--spacing-xs);
 
-    opacity: 0;
-    pointer-events: none;
-
 }
 
 .slickstreet__label {
@@ -62,6 +59,12 @@
 
 }
 
+.street__input:checked ~ .section-light .slst__imageMask{
+    -webkit-mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}
 
 @media all and (min-width: 768px) {
 

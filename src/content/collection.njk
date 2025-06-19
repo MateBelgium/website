@@ -19,20 +19,34 @@ permalink: collection.html
     <div class="collectionIntroVideo__container grid-layout">
         <div class="collectionIntro__bird videoBird1"></div>
         <div class="collectionIntroVideo__content">
-            <video-player
-            title="Mate: The Movie"
-            data-iframe-src="https://www.youtube-nocookie.com/embed/uQSEx-Wk0g4"
-            class="collectionIntro__video">
-            <a
-            href="https://www.youtube.com/watch?v=uQSEx-Wk0g4"
-            aria-label="load video">
-            <img
-            src="../assets/img/hp-bgi.jpg"
-            loading="lazy"
-            decoding="async"
-            alt="Mate Movie" />
-            </a>
-            </video-player>
+            <div class="collectionIntroVideo__content">
+                <noscript>
+                    <video-player
+                    title="Mate: The Movie"
+                    data-iframe-src="https://www.youtube-nocookie.com/embed/uQSEx-Wk0g4"
+                    class="collectionIntro__video">
+                    <a
+                    href="https://www.youtube.com/watch?v=uQSEx-Wk0g4"
+                    aria-label="load video">
+                    <img
+                    src="../assets/img/hp-bgi.jpg"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Mate Movie" />
+                    </a>
+                    </video-player>
+                </noscript>
+                <div class="collectionIntroVideoSlSt__container">
+                    <video id="videoSlick" class="slstVideo" preload="auto" playsinline>
+                      <source src="../assets/medias/videos/pubA.mp4" type="video/mp4">
+                    </video>
+                  
+                    <video id="videoStreet" class="slstVideo" preload="auto" playsinline hidden>
+                      <source src="../assets/medias/videos/pubB.mp4" type="video/mp4">
+                    </video>
+                  </div>
+            </div>
+            
         </div>
         <div class="collectionIntro__bird videoBird2"></div>
 
@@ -55,9 +69,9 @@ permalink: collection.html
             <input type="radio" id="colShop2" name="colShopImg-selector">
             <input type="radio" id="colShop3" name="colShopImg-selector">
 
-            <div class="collectionShopItem colShop1" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
-            <div class="collectionShopItem colShop2" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
-            <div class="collectionShopItem colShop3" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
+            <div class="collectionShopItem colShop1 slst__imageMask" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
+            <div class="collectionShopItem colShop2 slst__imageMask" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
+            <div class="collectionShopItem colShop3 slst__imageMask" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
 
             <div class="colShopImg-labels">
                 <label for="colShop1"></label>
