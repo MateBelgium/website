@@ -1,19 +1,17 @@
 .slickstreet__container {
 
-    display: none;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     gap: var(--spacing-xs);
-
-    opacity: 0;
-    pointer-events: none;
 
 }
 
 .slickstreet__label {
 
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     align-items: center;
     justify-content: flex-start;
@@ -62,20 +60,28 @@
 
 }
 
+.street__input:checked ~ .section-light .slst__imageMask{
+    -webkit-mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}
 
 @media all and (min-width: 768px) {
 
     .slickstreet__container {
 
-        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-m);
     
     }
 
     
     .slickstreet__label {
 
-        gap: var(--spacing-m);
+        gap: var(--spacing-s);
         font-size: var(--fontsize-m);
+        flex-direction: row;
 
     }
     

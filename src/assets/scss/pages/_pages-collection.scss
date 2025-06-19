@@ -32,15 +32,40 @@
 
 .collectionIntroVideo__content{
     grid-area: 2 / 2 / 5 / -2;
+    aspect-ratio: 16 / 9;
 }
 
 .collectionIntro__video img{
     border-radius: var(--spacing-s);
 
-    aspect-ratio: 16 / 9;
+    object-fit: cover;
 
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+
+.collectionIntroVideoSlSt__container{
+    display: none;
+
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.slstVideo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+    pointer-events: none;
 }
 
 .collectionIntro__bird{
@@ -114,7 +139,6 @@
 
     overflow: hidden;
 
-    border-radius: var(--spacing-s);
 }
 
 input[type="radio"] {
@@ -319,15 +343,12 @@ input[type="radio"] {
 
         aspect-ratio: 0;
 
-        border-radius: 0px;
     }
 
     .collectionShopItem{
         position:relative;
     
         aspect-ratio: 4 / 5;
-
-        border-radius: var(--spacing-s);
 
         opacity: 1;
     }
