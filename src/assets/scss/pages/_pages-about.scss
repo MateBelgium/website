@@ -137,6 +137,13 @@
     fill: var(--color-white);
 }
 
+.aboutLocation__playContent svg{
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
 .aboutValues__content{
 
     display: flex;
