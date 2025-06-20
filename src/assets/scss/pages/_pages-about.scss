@@ -1,57 +1,159 @@
-.aboutPage__headerText{
-    position: absolute;
-    text-align: center;
-    align-content: center;
-    width: 100%;
-    max-width: 1000px;
-    height: calc(var(--banner-height) - var(--roundEdge-height));
+.aboutIntro__container{
+    row-gap: var(--spacing-xl);
 }
 
-
-.aboutIntro__container{
-    row-gap: var(--spacing-m);
+.aboutIntro__container .core{
+    text-align: center;
 }
 
 .aboutIntro__container .core:first-of-type{
-    grid-area: 1 / 2 / 2 / -2;
+    grid-area: 2 / 2 / 3 / -2;
 }
 
 .aboutIntro__container .core:last-of-type{
-    grid-area: 2 / 3 / 3 / -2;
+    grid-area: 4 / 2 / 5 / -2;
 }
 
-.aboutHow__container{
-    row-gap: var(--spacing-xxl);
-    padding-block: var(--spacing-xxl);
+.ap__titleImage{
+    grid-area: 1 / 3 / 2 / -3;
+    width: 100%;
 }
 
-.aboutHow__container h1{
+.ap__introImage{
+    grid-area: 3 / 2 / 4 / -2;
+    width: 100%;
+}
+
+.aboutLocation__container{
+    row-gap: var(--spacing-xl);
+    padding-bottom: var(--spacing-l);
+}
+
+.aboutLocation__title{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.aboutLocation__titleContent{
+
+    padding: var(--spacing-s);
+    background-color: var(--color-accent);
+
+    max-width: fit-content;
+
+    transform: translateY(calc(-1 * (var(--spacing-s)*2) + (var(--spacing-s)/4)));
+}
+
+.aboutLocation__globe{
+    grid-area: 2 / 3 / 3 / -3 ;
+
+    aspect-ratio: 1 / 1;
+
+    background-image: url("../medias/imgs/aboutLocation__globe.png");
+    background-size: cover;
+
+    align-self: center;
+}
+
+.aboutLocation__container .core{
+    grid-area: 3 / 2 / 4 / -2;
+    color: var(--color-grey-500);
+    align-self: center;
+}
+
+.aboutLocation__card{
+    display: flex;
+    flex-direction: column;
+    
+    gap: var(--spacing-s);
+}
+
+.aboutLocation__card p{
     text-align: center;
+    color: var(--color-grey-500);
+}
+
+.aboutLocation__eye{
+    grid-area: 4 / 2 / 6 / 4 ;
+}
+
+.aboutLocation__eye div{
+    
+    background-image: url("../medias/imgs/aboutLocation__eye.png");
+    background-size: cover;
+    
+    aspect-ratio: 3.6 / 2.8;
+
+}
+
+.aboutLocation__book{
+    grid-area: 5 / 5 / 7 / 7 ;
+}
+
+.aboutLocation__book div{
+
+    aspect-ratio: 4.6 / 3.5;
+
+    background-image: url("../medias/imgs/aboutLocation__book.png");
+    background-size: cover;
+}
+
+.aboutLocation__diamond{
+    grid-area: 6 / 2 / 7 / 4 ;
+}
+
+.aboutLocation__diamond div{
+
+    aspect-ratio: 4.1 / 2.6;
+
+    background-image: url("../medias/imgs/aboutLocation__diamond.png");
+    background-size: cover;
+}
+
+.aboutLocation__play{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.aboutLocation__playContent{
+    display: flex;
+    justify-content: center;
+
+    padding: var(--spacing-s);
+    background-color: var(--color-accent);
+
+    width: 10%;
+
+    transform: translateY(calc(var(--spacing-m) * 1.75));
+
+    z-index: 1;
+}
+
+.aboutLocation__play polygon{
+    fill: var(--color-white);
+}
+
+.aboutValues__content{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-xl);
+
     grid-area: 1 / 2 / 2 / -2;
 }
 
-.aboutHow__container .aboutHow__article .subtitle-dark{
-    padding-bottom: var(--spacing-s);
-}
+.aboutValues__card{
+    display: flex;
+    flex-direction: column;
 
-.aboutHow__container .aboutHow__article:nth-child(2){
-    grid-area: 2 / 2 / 3 / -3;
-}
+    gap: calc(var(--spacing-s)/2);
 
-.aboutHow__container .aboutHow__article:nth-child(3){
-    grid-area: 3 / 3 / 4 / -2;
-}
-
-.aboutHow__container .aboutHow__article:nth-child(4){
-    grid-area: 4 / 2 / 5 / -3;
-}
-
-.aboutHow__container .aboutHow__article:nth-child(5){
-    grid-area: 5 / 3 / 6 / -2;
-}
-
-.aboutHow__container .aboutHow__article:nth-child(6){
-    grid-area: 6 / 2 / 7 / -3;
+    text-align: center;
 }
 
 .aboutMeet__container h1{
@@ -195,29 +297,71 @@ input[type=submit]:hover {
 }
 
 @media all and (min-width: 768px){
-    .aboutHow__container h1{
-        text-align: right;
-        grid-area: 1 / 2 / 2 / -2;
+    
+    .aboutIntro__container{
+        row-gap: var(--spacing-xxl);
+    }
+    
+    .aboutIntro__container .core:first-of-type{
+        grid-area: 2 / 3 / 3 / -3;
     }
 
-    .aboutHow__container .aboutHow__article:nth-child(2){
-        grid-area: 2 / 2 / 3 / 5;
+    .aboutIntro__container .core:last-of-type{
+        grid-area: 4 / 3 / 5 / -3;
+    }
+
+    .ap__titleImage{
+        grid-area: 1 / 4 / 2 / -4;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(3){
-        grid-area: 3 / 6 / 4 / -2;
+    .ap__introImage{
+        grid-area: 3 / 3 / 4 / -3;
+    
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(4){
-        grid-area: 4 / 2 / 5 / 5;
+    .aboutLocation__globe{
+        grid-area: 2 / 4 / 3 / -4 ;
+    
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(5){
-        grid-area: 5 / 6 / 6 / -2;
+    .aboutLocation__container .core{
+        grid-area: 3 / 3 / 4 / -3; 
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(6){
-        grid-area: 6 / 2 / 7 / 5;
+    .aboutLocation__card p{
+        text-align: center;
+    }
+    
+    .aboutLocation__eye{
+        grid-area: 4 / 3 / 5 / 4 ;
+    }
+    
+    .aboutLocation__book{
+        grid-area: 4 / 5 / 5 / 6 ;
+    }
+    
+    .aboutLocation__diamond{
+        grid-area: 4 / 7 / 5 / 8 ;
+    }
+    
+    .aboutLocation__playContent{
+        width: 5%;
+        transform: translateY(calc(var(--spacing-m) * 1.8));
+    }
+
+    .aboutValues__content{
+
+        display: flex;
+        flex-direction: row;
+    
+        gap: var(--spacing-xl);
+
+        padding-block: var(--spacing-m);
+
+    }
+
+    .aboutValues__card{
+        width: 33%;
     }
 
     .aboutMeet__container h1{
@@ -252,43 +396,71 @@ input[type=submit]:hover {
 }
 
 @media all and (min-width: 1024px){
+    .aboutIntro__container{
+        row-gap: var(--spacing-xxxl);
+    }
+
+    .aboutIntro__container .core{
+        line-height: var(--spacing-l);
+    }
+    
     .aboutIntro__container .core:first-of-type{
-        grid-area: 1 / 3 / 2 / -3;
+        grid-area: 2 / 3 / 3 / -3;
     }
     
     .aboutIntro__container .core:last-of-type{
-        grid-area: 2 / 4 / 4 / -3;
+        grid-area: 4 / 3 / 5 / -3;
     }
 
-    .aboutHow__container .aboutHow__article:nth-child(2){
-        grid-area: 2 / 2 / 3 / 5;
+    .ap__titleImage{
+        grid-area: 1 / 5 / 2 / -5;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(3){
-        grid-area: 3 / 5 / 4 / 8;
+    .ap__introImage{
+        grid-area: 3 / 3 / 4 / -3;
+    
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(4){
-        grid-area: 4 / 8 / 6 / -2;
+    .aboutLocation__globe{
+        grid-area: 2 / 2 / 3 / 5 ;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(5){
-        grid-area: 5 / 2 / 6 / 5;
-    }
-    
-    .aboutHow__container .aboutHow__article:nth-child(6){
-        grid-area: 6 / 5 / 7 / 8;
+    .aboutLocation__container .core{
+        grid-area: 2 / 5 / 3 / -2 ;
     }
 
-    .aboutHow__container{
-        padding-bottom: calc(var(--spacing-xxl) * 2);
+    .aboutLocation__card p{
+        text-align: center;
+    }
+    
+    .aboutLocation__eye{
+        grid-area: 3 / 5 / 4 / 7 ;
+    }
+    
+    .aboutLocation__book{
+        grid-area: 3 / 7 / 4 / 9 ;
+    }
+    
+    .aboutLocation__diamond{
+        grid-area: 3 / 9 / 4 / 11 ;
+    }
+    
+    .aboutLocation__playContent{
+        transform: translateY(calc(var(--spacing-m) * 2.1));
     }
 
+    .aboutValues__content{
+
+        padding-block: var(--spacing-l);
+
+    }
+    
+    .aboutMates__carrousel{
+        overflow-x: hidden;
+    }
+    
     .aboutMates__card{
-
-        gap: var(--spacing-m);
-        
-        min-width: 40%;
+        min-width: auto;
     }
 
     .aboutContact__container .core:first-of-type{
@@ -302,32 +474,64 @@ input[type=submit]:hover {
 }
 
 @media all and (min-width: 1440px){
+    .aboutIntro__container{
+        row-gap: var(--spacing-xxxl);
+    }
+
+    .aboutIntro__container .core{
+        text-align: left;
+    }
+    
     .aboutIntro__container .core:first-of-type{
-        grid-area: 1 / 4 / 2 / -4;
+        grid-area: 2 / 3 / 3 / 6;
     }
     
     .aboutIntro__container .core:last-of-type{
-        grid-area: 2 / 5 / 4 / -4;
+        grid-area: 3 / 3 / 4 / -3;
     }
 
-    .aboutHow__container .aboutHow__article:nth-child(2){
-        grid-area: 2 / 3 / 3 / 5;
+    .ap__titleImage{
+        grid-area: 1 / 5 / 2 / -5;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(3){
-        grid-area: 3 / 5 / 4 / 7;
+    .ap__introImage{
+        grid-area: 2 / 7 / 3 / -1;
+    
+    }
+
+    .aboutLocation__globe{
+        grid-area: 2 / 2 / 5 / 5 ;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(4){
-        grid-area: 4 / 8 / 6 / -3;
+    .aboutLocation__container .core{
+        grid-area: 2 / 5 / 5 / 7 ;
+    }
+
+    .aboutLocation__card p{
+        text-align: center;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(5){
-        grid-area: 5 / 3 / 6 / 5;
+    .aboutLocation__eye{
+        grid-area: 2 / 9 / 3 / 10 ;
     }
     
-    .aboutHow__container .aboutHow__article:nth-child(6){
-        grid-area: 6 / 6 / 7 / 8;
+    .aboutLocation__book{
+        grid-area: 3 / 8 / 3 / 9 ;
+    }
+    
+    .aboutLocation__diamond{
+        grid-area: 3 / 10 / 4 / 11 ;
+    }
+    
+    .aboutLocation__playContent{
+        width: 3%;
+        transform: translateY(calc(var(--spacing-m) * 2));
+    }
+
+    .aboutValues__content{
+
+        padding-block: var(--spacing-xl);
+
     }
 
     .aboutMeet__container{
