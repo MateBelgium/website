@@ -1,46 +1,55 @@
 <?php
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+
+// Load SMTP config from separate file (e.g., mail-config.php)
+$config = require 'config.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Assuming you installed PHPMailer via Composer
-$config = require 'config.php';
-
-// Handle form data
-$firstName = $_POST['firstname'] ?? '';
-$lastName  = $_POST['lastname'] ?? '';
-$email     = $_POST['email'] ?? '';
-$message   = $_POST['message'] ?? '';
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo 'Invalid email address.';
-    exit;
-}
-
-// Compose email
 $mail = new PHPMailer(true);
 
 try {
-    // SMTP settings
+    // Enable verbose debug output
+    $mail->SMTPDebug = 2;  // 0 = off, 1 = client messages, 2 = client and server messages
+    $mail->Debugoutput = 'html';
+
+    // Server settings
     $mail->isSMTP();
     $mail->Host       = $config['host'];
     $mail->SMTPAuth   = true;
     $mail->Username   = $config['username'];
     $mail->Password   = $config['password'];
-    $mail->SMTPSecure = $config['secure'];
+    $mail->SMTPSecure = $config['secure'];  // tls or ssl
     $mail->Port       = $config['port'];
 
-    // Email headers
+    // Recipients
     $mail->setFrom($config['from_email'], $config['from_name']);
-    $mail->addAddress($config['to_email']);
-    $mail->addReplyTo($email, "$firstName $lastName");
 
-    $mail->Subject = "New Contact Form Submission from $firstName $lastName";
-    $mail->Body    = "Name: $firstName $lastName\nEmail: $email\n\nMessage:\n$message";
+    // Assume user input from POST form
+    $userEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    if (!$userEmail) {
+        throw new Exception('Invalid email address');
+    }
+
+    $mail->addAddress($config['to_email']); // your email where you want to receive messages
+    $mail->addReplyTo($userEmail);
+
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = 'New Contact Form Message';
+    
+    $messageBody = "
+        <strong>From:</strong> " . htmlspecialchars($_POST['firstname']) . " " . htmlspecialchars($_POST['lastname']) . "<br>
+        <strong>Email:</strong> " . htmlspecialchars($userEmail) . "<br>
+        <strong>Message:</strong><br>" . nl2br(htmlspecialchars($_POST['message']));
+    
+    $mail->Body = $messageBody;
 
     $mail->send();
-    echo 'Message sent successfully';
+    echo 'Message has been sent';
+
 } catch (Exception $e) {
-    http_response_code(500);
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
