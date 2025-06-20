@@ -1,39 +1,46 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Sanitize all inputs
-    $firstName = htmlspecialchars(trim($_POST['firstname']));
-    $lastName  = htmlspecialchars(trim($_POST['lastname']));
-    $email     = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $message   = htmlspecialchars(trim($_POST['message']));
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    // 2. Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "❌ Invalid email address. Please go back and try again.";
-        exit;
-    }
+require 'vendor/autoload.php'; // Assuming you installed PHPMailer via Composer
+$config = require 'config.php';
 
-    // 3. Basic checks (optional)
-    if (empty($firstName) || empty($lastName) || empty($message)) {
-        echo "❌ Please fill in all fields.";
-        exit;
-    }
+// Handle form data
+$firstName = $_POST['firstname'] ?? '';
+$lastName  = $_POST['lastname'] ?? '';
+$email     = $_POST['email'] ?? '';
+$message   = $_POST['message'] ?? '';
 
-    // 4. Email details
-    $to = "matebelgium.contact@gmail.com";
-    $subject = "New Contact Form Submission";
-    $body = "You received a new message from your website:\n\n" .
-            "Name: $firstName $lastName\n" .
-            "Email: $email\n\n" .
-            "Message:\n$message\n";
-    $headers = "From: $email";
-
-    // 5. Attempt to send email
-    if (mail($to, $subject, $body, $headers)) {
-        echo "✅ Message sent successfully. Thank you!";
-    } else {
-        echo "❌ Something went wrong. Please try again later.";
-    }
-} else {
-    echo "⚠️ Invalid request.";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo 'Invalid email address.';
+    exit;
 }
-?>
+
+// Compose email
+$mail = new PHPMailer(true);
+
+try {
+    // SMTP settings
+    $mail->isSMTP();
+    $mail->Host       = $config['host'];
+    $mail->SMTPAuth   = true;
+    $mail->Username   = $config['username'];
+    $mail->Password   = $config['password'];
+    $mail->SMTPSecure = $config['secure'];
+    $mail->Port       = $config['port'];
+
+    // Email headers
+    $mail->setFrom($config['from_email'], $config['from_name']);
+    $mail->addAddress($config['to_email']);
+    $mail->addReplyTo($email, "$firstName $lastName");
+
+    $mail->Subject = "New Contact Form Submission from $firstName $lastName";
+    $mail->Body    = "Name: $firstName $lastName\nEmail: $email\n\nMessage:\n$message";
+
+    $mail->send();
+    echo 'Message sent successfully';
+} catch (Exception $e) {
+    http_response_code(500);
+    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+}
