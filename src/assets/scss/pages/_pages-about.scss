@@ -190,6 +190,13 @@
     grid-area: 3 / 3 / 4 / -2;
 }
 
+.aboutMates__banner{
+    background-image: url("../medias/imgs/aboutMates__banner__lq.webp");
+    background-position: 60%;
+
+    height: calc((var(--banner-height) + (var(--fontsize-s))));
+}
+
 .aboutMates__container{
     padding-block: var(--spacing-l);
 }
@@ -222,6 +229,22 @@
     background-size: cover;
 
     border-radius: var(--spacing-s);
+}
+
+.aboutMate__theo{
+    background-image: url("../medias/imgs/aboutMates__theo__lq.webp");
+}
+
+.aboutMate__elann{
+    background-image: url("../medias/imgs/aboutMates__elann__lq.webp");
+}
+
+.aboutMate__martin{
+    background-image: url("../medias/imgs/aboutMates__martin__lq.webp");
+}
+
+.aboutMate__arno{
+    background-image: url("../medias/imgs/aboutMates__arno__lq.webp");
 }
 
 .aboutMates__socials{
@@ -392,6 +415,11 @@ input[type=submit]:hover {
         grid-area: 3 / 2 / 4 / -2;
     }
 
+    .aboutMates__banner{
+        background-image: url("../medias/imgs/aboutMates__banner__mq.webp");
+        height: calc((var(--banner-height) + (var(--fontsize-l))));
+    }
+
     .aboutMates__carrousel{
         padding: var(--spacing-xl);
         
@@ -407,6 +435,22 @@ input[type=submit]:hover {
         gap: var(--spacing-m);
         
         min-width: 60%;
+    }
+
+    .aboutMate__theo{
+        background-image: url("../medias/imgs/aboutMates__theo__mq.webp");
+    }
+    
+    .aboutMate__elann{
+        background-image: url("../medias/imgs/aboutMates__elann__mq.webp");
+    }
+    
+    .aboutMate__martin{
+        background-image: url("../medias/imgs/aboutMates__martin__mq.webp");
+    }
+    
+    .aboutMate__arno{
+        background-image: url("../medias/imgs/aboutMates__arno__mq.webp");
     }
 
     .aboutContact__container .core:first-of-type{
@@ -480,6 +524,10 @@ input[type=submit]:hover {
         padding-block: var(--spacing-l);
 
     }
+
+    .aboutMates__banner{
+        background-image: url("../medias/imgs/aboutMates__banner__hq.webp");
+    }
     
     .aboutMates__carrousel{
         overflow-x: hidden;
@@ -487,6 +535,22 @@ input[type=submit]:hover {
     
     .aboutMates__card{
         min-width: auto;
+    }
+
+    .aboutMate__theo{
+        background-image: url("../medias/imgs/aboutMates__theo__hq.webp");
+    }
+    
+    .aboutMate__elann{
+        background-image: url("../medias/imgs/aboutMates__elann__hq.webp");
+    }
+    
+    .aboutMate__martin{
+        background-image: url("../medias/imgs/aboutMates__martin__hq.webp");
+    }
+    
+    .aboutMate__arno{
+        background-image: url("../medias/imgs/aboutMates__arno__hq.webp");
     }
 
     .aboutContact__container .core:first-of-type{
