@@ -37,7 +37,7 @@
     width: 100%;
 }
 
-.aboutLocation__titleContent{
+.aboutLocation__titleContent p{
 
     color: var(--color-white);
     font-family: var(--fontfamily-coreDM);
@@ -217,6 +217,7 @@
     gap: var(--spacing-s);
     
     min-width: 80%;
+    width: 100%;
 }
 
 .aboutMates__card h2{

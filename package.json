@@ -18,9 +18,9 @@
     "netlify": "npm run dev & npx netlify dev"
   },
   "keywords": [],
-  "author": "Jérôme Coupé",
+  "author": "Elann Fraiture & Arno Joachim",
   "license": "MIT",
-  "description": "A bare bones example of a shopping cart with Eleventy, Alpine and Stripe",
+  "description": "MateBelgium official website",
   "browserslist": ">= 0.5%, not dead",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
