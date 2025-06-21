@@ -42,6 +42,14 @@
     padding-block: var(--roundEdge-height);
 }
 
+.section-dark__schematic {
+
+    background-image: url("../medias/imgs/bg_schematic_dark.png");
+    background-position: center;
+    background-size: contain;
+
+}
+
 .section-dark .coreDM{
     color: var(--color-grey-500);
 }

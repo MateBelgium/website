@@ -1,5 +1,6 @@
 .aboutIntro__container{
     row-gap: var(--spacing-xl);
+    padding-block-end: var(--spacing-xl);
 }
 
 .aboutIntro__container .core{
@@ -38,12 +39,18 @@
 
 .aboutLocation__titleContent{
 
-    padding: var(--spacing-s);
+    color: var(--color-white);
+    font-family: var(--fontfamily-coreDM);
+    font-size: var(--fontsize-m);
+    font-weight: var(--fontweight-subtitle);
+
+    padding-block: var(--spacing-m);
+    padding-inline: var(--spacing-l);
     background-color: var(--color-accent);
 
     max-width: fit-content;
 
-    transform: translateY(calc(-1 * (var(--spacing-s)*2) + (var(--spacing-s)/4)));
+    transform: translateY(calc(-1 * (var(--spacing-m)*2) + (var(--spacing-m)/4)));
 }
 
 .aboutLocation__globe{
@@ -53,11 +60,14 @@
 
     background-image: url("../medias/imgs/aboutLocation__globe.png");
     background-size: cover;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
 
     align-self: center;
 }
 
-.aboutLocation__container .core{
+.aboutLocation__core{
     grid-area: 3 / 2 / 4 / -2;
     color: var(--color-grey-500);
     align-self: center;
@@ -73,6 +83,8 @@
 .aboutLocation__card p{
     text-align: center;
     color: var(--color-grey-500);
+    font-family: var(--fontfamily-coreDM);
+    font-size: var(--fontsize-m);
 }
 
 .aboutLocation__eye{
@@ -328,10 +340,11 @@ input[type=submit]:hover {
     
     .aboutLocation__globe{
         grid-area: 2 / 4 / 3 / -4 ;
+        background-size: 75%;
     
     }
     
-    .aboutLocation__container .core{
+    .aboutLocation__core{
         grid-area: 3 / 3 / 4 / -3; 
     }
     
@@ -428,11 +441,17 @@ input[type=submit]:hover {
     
     }
     
+    .aboutLocation__titleContent {
+        font-size: var(--fontsize-ml);
+        padding-inline: var(--spacing-xl);
+    }
+
     .aboutLocation__globe{
         grid-area: 2 / 2 / 3 / 5 ;
+        background-size: 75%;
     }
     
-    .aboutLocation__container .core{
+    .aboutLocation__core{
         grid-area: 2 / 5 / 3 / -2 ;
     }
 
@@ -508,10 +527,12 @@ input[type=submit]:hover {
 
     .aboutLocation__globe{
         grid-area: 2 / 2 / 5 / 5 ;
+        background-size: 65%;
     }
     
-    .aboutLocation__container .core{
-        grid-area: 2 / 5 / 5 / 7 ;
+    .aboutLocation__core{
+        grid-area: 2 / 5 / 5 / 8 ;
+        padding-inline-end: var(--spacing-xxl);
     }
 
     .aboutLocation__card p{
