@@ -44,7 +44,7 @@ export default () => {
       const newTab = window.open("", "_blank");
       try {
 
-        const response = await fetch("/.netlify/functions/checkout", {
+        const response = await fetch("/.netlify/functions-serve/checkout/functions/checkout.mjs", {  ///.netlify/functions/checkout
           method: "POST",
           body: JSON.stringify(this.products),
           headers: {
