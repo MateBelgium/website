@@ -76,6 +76,10 @@
     background-color: var(--color-white);
 
     transition: 0.5s;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .UI__clickHere{
@@ -103,6 +107,10 @@
     background-color: var(--color-white);
 
     transition: 0.5s;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .UI__posterLaunch{
