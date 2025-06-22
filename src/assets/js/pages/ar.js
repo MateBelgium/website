@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         UIScan.style.display = "none"
 
-        UIClick.style.opacity = "1"
+        UIClick.style.display = "block"
 
         UILaunch.style.display = "block"
         
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         UIScan.style.display = "block"
 
-        UIClick.style.opacity = "0"
+        UIClick.style.display = "none"
 
         UILaunch.style.display = "none"
   
