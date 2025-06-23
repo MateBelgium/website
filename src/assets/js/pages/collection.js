@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
+    //Get variables needed for switch experience
     const videoSlSt = document.querySelector(".collectionIntroVideoSlSt__container");
     const slstButton = document.querySelector(".collectionIntroVideoSlSt__button");
   
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let videoStatus = false;
     const loadedVideos = new WeakSet();
   
+    //Test if video CAN be preloaded. 
     async function canPreloadVideo() {
       const testVideo = document.createElement("video");
       testVideo.muted = true;
@@ -25,16 +28,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   
+    //Preload video function. Checks if video is playable for a few frames
     function preloadVideo(video) {
       return new Promise((resolve) => {
         video.muted = true;
         video.preload = "auto";
   
+        //Remove event listener when video is ALMOST fully loaded
         function cleanup() {
           video.removeEventListener("loadedmetadata", onLoadedMetadata);
           video.removeEventListener("canplaythrough", onCanPlayThrough);
         }
   
+        //Check if video is playable for a few frames.
         function onLoadedMetadata() {
           if (video.readyState >= 3) {
             cleanup();
@@ -47,7 +53,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             }, 5000);
           }
         }
-  
+        
+        //When video is playable.
         function onCanPlayThrough() {
           cleanup();
           resolve();
@@ -58,12 +65,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   
+    //Preload all given videos (if allowed previously)
     async function preloadVideos(videos) {
       await Promise.all(videos.map(preloadVideo));
     }
   
     const preloadCapable = await canPreloadVideo();
   
+    //If video is preloadable, show it
     if (preloadCapable) {
       await preloadVideos([videoSlick, videoStreet]);
       loadedVideos.add(videoSlick);
@@ -73,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       videoSlSt.style.display = "block";
     }
   
+    //Check if video needs to be loaded
     function loadVideoIfNeeded(video) {
       if (!loadedVideos.has(video)) {
         video.muted = true;
@@ -81,16 +91,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   
+    //Play function
     function playVideo(video) {
       video.muted = false;
       video.play();
     }
   
+    //Show video function
     function showVideo(video) {
       video.style.visibility = "visible";
       video.style.zIndex = 1;
     }
   
+    //Hide video function
     function hideVideo(video) {
       video.style.visibility = "hidden";
       video.style.zIndex = 0;
@@ -98,16 +111,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   
     let lastCurrentTime = 0;
   
+    //Function executed when label switch is detected
     function switchVideo(fromVideo, toVideo) {
+      const transition = document.querySelector(".slstTransition");
       lastCurrentTime = fromVideo.currentTime;
   
       if (videoStatus) {
         fromVideo.pause();
-        loadVideoIfNeeded(toVideo);
-        toVideo.currentTime = lastCurrentTime;
-        hideVideo(fromVideo);
-        showVideo(toVideo);
-        playVideo(toVideo);
+
+        transition.currentTime = 0;
+        transition.play();
+
+        //Find the second frame of the animation (approx)
+        const transitionSwitch = transition.duration * 0.22;
+
+        const checkSwitchTime = () => {
+
+          if(transition.currentTime >= transitionSwitch){
+
+            transition.removeEventListener('timeupdate', checkSwitchTime);
+
+            loadVideoIfNeeded(toVideo);
+            toVideo.currentTime = lastCurrentTime;
+    
+            hideVideo(fromVideo);
+            showVideo(toVideo);
+            playVideo(toVideo);
+
+          }
+        }
+
+        transition.addEventListener('timeupdate', checkSwitchTime);
+
       } else {
         toVideo.currentTime = lastCurrentTime;
         hideVideo(fromVideo);
@@ -115,6 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   
+    //Listen for click on play button
     videoSlSt.addEventListener("click", () => {
       if (!videoStatus) {
         videoStatus = true;
@@ -139,10 +175,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   
+    //Listen for change in input
     slickInput.addEventListener("change", () => {
       if (slickInput.checked) switchVideo(videoStreet, videoSlick);
     });
-  
+    
+    //Listen for change in input
     streetInput.addEventListener("change", () => {
       if (streetInput.checked) switchVideo(videoSlick, videoStreet);
     });
@@ -151,88 +189,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     showVideo(slickInput.checked ? videoSlick : videoStreet);
     hideVideo(slickInput.checked ? videoStreet : videoSlick);
   });
-
-/*
-document.addEventListener("DOMContentLoaded", () => {
-    const videoSlSt = document.querySelector(".collectionIntroVideoSlSt__container");
-    videoSlSt.style.display = "block"
-    
-    const slstButton = document.querySelector(".collectionIntroVideoSlSt__button");
-
-    const videoSlick = document.getElementById("videoSlick");
-    const videoStreet = document.getElementById("videoStreet");
-    
-    const slickInput = document.querySelector(".slick__input");
-    const streetInput = document.querySelector(".street__input");
-
-    let videoStatus = false;
-    
-    function switchVideo(fromVideo, toVideo) {
-
-        const time = fromVideo.currentTime;
-
-        if(!videoStatus){
-
-            toVideo.currentTime = time;
-            fromVideo.hidden = true;
-            toVideo.hidden = false;
-
-            console.log("videoStatus is " + videoStatus)
-            
-        }else{
-            
-            fromVideo.pause();
-            toVideo.currentTime = time;
-            toVideo.play();
-            fromVideo.hidden = true;
-            toVideo.hidden = false;
-            
-            console.log("videoStatus is " + videoStatus)
-
-        }
-
-    }
-
-    videoSlSt.addEventListener("click", () => {
-
-        if(!videoStatus){
-
-            videoStatus = true
-
-            slstButton.style.display = "none"
-            
-            if (slickInput.checked){
-                videoSlick.play();
-                console.log("playing slick")
-            }else if(streetInput.checked){
-                videoStreet.play();
-                console.log("playing street")
-            }else{
-                return
-            };
-            
-        }else{
-            
-            videoStatus = false
-            
-            slstButton.style.display = "flex"
-
-            if (slickInput.checked){
-                videoSlick.pause();
-                console.log("pausing slick")
-            }else{
-                videoStreet.pause();
-                console.log("pausing street")
-            };
-        }
-      });
-    
-    slickInput.addEventListener("change", () => {
-      if (slickInput.checked) switchVideo(videoStreet, videoSlick);
-    });
-    
-    streetInput.addEventListener("change", () => {
-      if (streetInput.checked) switchVideo(videoSlick, videoStreet);
-    });
-});
-*/
