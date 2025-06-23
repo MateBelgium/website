@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   
     let videoStatus = false;
     const loadedVideos = new WeakSet();
+
+    //Check if user is using IOS
+    function isIOS(){
+      return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
   
     //Test if video CAN be preloaded. 
     async function canPreloadVideo() {
@@ -185,6 +190,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (streetInput.checked) switchVideo(videoSlick, videoStreet);
     });
   
+    //If IOS is detectes, remove slick street experience container
+    if(isIOS()){
+      console.log("You are using IOS and they don't allow .webm files, sorryyyyy");
+      const pubForIphone = document.querySelector(".pubForIphone");
+      pubForIphone.style.display = "block";
+      videoSlSt.style.display = "none";
+    }
+
     // Initial setup
     showVideo(slickInput.checked ? videoSlick : videoStreet);
     hideVideo(slickInput.checked ? videoStreet : videoSlick);

@@ -25,6 +25,10 @@
 
 }
 
+.pubForIphone{
+    display: none;
+}
+
 .collectionIntroVideo__container{
     padding-top: var(--spacing-l);
     padding-bottom: var(--spacing-xxl);
@@ -36,7 +40,6 @@
 }
 
 .collectionIntro__video img{
-    border-radius: var(--spacing-s);
 
     object-fit: cover;
 
