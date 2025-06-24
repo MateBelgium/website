@@ -18,6 +18,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   }
 
+  //Check if user is using Safari
+  function isSafari() {
+  const ua = navigator.userAgent;
+  return /^((?!chrome|android|crios|fxios|edgios|edg|opera|opr).)*safari/i.test(ua);
+  }
+
   //Test if video CAN be preloaded. 
   async function canPreloadVideo() {
     const testVideo = document.createElement("video");
@@ -191,7 +197,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   //If IOS is detectes, remove slick street experience container
-  if(isIOS()){
+  if (isIOS() || isSafari()){
     console.log("You are using IOS and they don't allow .webm files, sorryyyyy");
     const pubForIphone = document.querySelector(".pubForIphone");
     pubForIphone.style.display = "block";
