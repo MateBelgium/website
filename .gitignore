@@ -137,3 +137,6 @@ dist
 
 # Email info
 config.php
+
+# MacOS file
+.DS_Store
