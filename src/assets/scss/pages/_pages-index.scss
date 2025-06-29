@@ -117,8 +117,8 @@ COLLECTION
 }
 
 .homeCollection__headerImg{
-    background-image: url("../medias/imgs/etretat__bg__lq.webp");
-    background-position: 50% 55%;
+    background-image: url("../medias/imgs/ardennes__bg__lq.webp");
+    background-position: 50% 35%;
 }
 
 .homeCollection__headerText{
@@ -126,7 +126,7 @@ COLLECTION
     width: 100%;
     max-width: 1000px;
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 100%;
     
     background-position: 50% 40%;
 }
@@ -331,12 +331,12 @@ input[type="radio"] {
     }
 
     .homeCollection__headerText{
-        background-size: 25%;
+        background-size: 75%;
         background-position: 50% 35%;
     }
 
     .homeCollection__headerImg{
-        background-image: url("../medias/imgs/etretat__bg__mq.webp");
+        background-image: url("../medias/imgs/ardennes__bg__mq.webp");
     }
 
     .homepageCollection__container{
@@ -470,7 +470,11 @@ input[type="radio"] {
     }
 
     .homeCollection__headerImg{
-        background-image: url("../medias/imgs/etretat__bg__hq.webp");
+        background-image: url("../medias/imgs/ardennes__bg__hq.webp");
+    }
+
+    .homeCollection__headerText{
+        background-size: 50%;
     }
 
     .homepageCollection__container{
@@ -537,10 +541,6 @@ input[type="radio"] {
     .homepageIntroButton{
 
         grid-area: 5 / 6 / 6 / -6;
-    }
-
-    .homeCollection__headerImg{
-        background-position: 50% 50%;
     }
 
     .homepageCollectionText__content{
