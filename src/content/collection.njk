@@ -1,164 +1,156 @@
 ---
 permalink: collection.html
+hideTopSpace: true
 ---
 
 {% extends "layouts/base.njk" %}
 
 {% block content %}
 
-<div class="section-light noBottom">
-    <div class="collectionIntro__container grid-layout">
-        <div class="collectionIntro__title"></div>
-        <p class="collectionIntro__text core">La pluie et la brume sont les seules constantes de ces paysages, évoluant dans un cycle sans fin. Au premier abord, les Ardennes semblent dénuées de toute chaleur. Pourtant, sous ce calme apparent, règne un véritable sentiment d'appartenance. On le ressent chez les gens, dans les joies simples de la vie, dans la connexion silencieuse des moments partagés.
-        <br> <br>
-        Peu importe d'où l'on vient, cet endroit donne l'impression d'être chez soi.
-        </p>
-    </div>
-    <div class="collectionIntro__bg"></div>
-</div>
+<div class="collectionHeader__container grid-layout noTop">
 
-<div class="section-dark">
-
-    <div class="collectionIntroVideo__container grid-layout">
-        <div class="collectionIntro__bird videoBird1"></div>
-        <div class="collectionIntroVideo__content">
-            <div class="collectionIntroVideo__content">
-                <noscript>
-                    <video-player
-                    title="Mate: The Movie"
-                    data-iframe-src="https://www.youtube-nocookie.com/embed/uQSEx-Wk0g4"
-                    class="collectionIntro__video">
-                    <a
-                    href="https://www.youtube.com/watch?v=uQSEx-Wk0g4"
-                    aria-label="load video">
-                    <img
-                    src="../assets/img/hp-bgi.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Mate Movie" />
-                    </a>
-                    </video-player>
-                </noscript>
-
-                <video-player
-                class="collectionIntro__video pubForIphone"
-                title="Mate: The Movie"
-                data-iframe-src="https://www.youtube-nocookie.com/embed/uQSEx-Wk0g4"
-                class="collectionIntro__video">
-                <a
-                href="https://www.youtube.com/watch?v=uQSEx-Wk0g4"
-                aria-label="load video">
-                <img
-                src="../assets/img/hp-bgi.jpg"
-                loading="lazy"
-                decoding="async"
-                alt="Mate Movie" />
-                </a>
-                </video-player>
-                
-                <div class="collectionIntroVideoSlSt__container">
-                    <div class="collectionIntroVideoSlSt__button">
-                        <img src="../assets/medias/imgs/playButton.png" alt="playButton">
-                    </div>
-
-                    <video id="transitionSlSt" class="slstTransition" preload="auto" playsinline>
-                      <source src="../assets/medias/videos/ballTransition1.webm" type="video/mp4">
-                    </video>
-
-                    <video id="videoSlick" class="slstVideo" preload="auto" playsinline poster="../assets/medias/imgs/placeHolderSlick.png">
-                      <source src="../assets/medias/videos/matePubA.webm" type="video/mp4">
-                    </video>
-                  
-                    <video id="videoStreet" class="slstVideo" preload="auto" playsinline poster="../assets/medias/imgs/placeHolderStreet.png">
-                      <source src="../assets/medias/videos/matePubR.webm" type="video/mp4">
-                    </video>
-                  </div>
-            </div>
-            
-        </div>
-        <div class="collectionIntro__bird videoBird2"></div>
-
-        <div class="collectionIntroText__subtitle subtitle">Dans ce tout premier épisode, cap sur les Ardennes belges !</div>
-        <p class="collectionIntroText__core core">Errant dans les forêts brumeuses des Ardennes belges, il avance prudemment, caméra en main, à la recherche du cliché parfait. L'air est vif, les seuls sons sont ceux des feuilles qui bruissent et des canards qui s'appellent au loin. À travers son objectif, ils semblent figés dans le temps… jusqu'à ce qu'un vibreur brise le silence. Un message de ses amis.</p>
-        <p class="collectionIntroText__core core">Pendant ce temps, dans un restaurant chaleureux niché au cœur d'un petit village, la scène prend déjà vie. Derrière le comptoir, un chef dispose des planches de charcuterie ardennaise : viandes séchées, fromages savoureux, pain frais; soigneusement préparées.
-        <br> <br>
-        L'air est empli des parfums de cuisson lente, quand la porte s'ouvre. Il est là. Les assiettes arrivent, les rires se mêlent à la chaleur du lieu, mais le vrai moment reste à venir. La boîte est posée sur la table, l'anticipation monte. Le couvercle se soulève, le tissu se déploie, révélant le motif qu'ils attendaient tous. Un regard complice, un hochement de tête — ce n'est pas qu'un simple T-shirt. C'est une histoire, un instant, un concentré de tout ce qu'ils aiment dans cet endroit.
-        </p>
-    
-    </div>
-
-</div>
-
-<div class="section-light noBottom">
-
-    <div class="collectionShop__container grid-layout">
-        <h2 class="collectionShop__subtitle subtitle">Découvrez notre t-shirt</h2>
-
-        <div class="collectionShopItems__container">
-
-            <input type="radio" id="colShop1" name="colShopImg-selector" checked>
-            <input type="radio" id="colShop2" name="colShopImg-selector">
-            <input type="radio" id="colShop3" name="colShopImg-selector">
-
-            <div class="collectionShopItem colShop1 slst__imageMask" style="background-image: url(../assets/img/hp-col-1.jpg);"></div>
-            <div class="collectionShopItem colShop2 slst__imageMask" style="background-image: url(../assets/img/hp-col-2.jpg);"></div>
-            <div class="collectionShopItem colShop3 slst__imageMask" style="background-image: url(../assets/img/hp-col-3.jpg);"></div>
-
-            <div class="colShopImg-labels">
-                <label for="colShop1"></label>
-                <label for="colShop2"></label>
-                <label for="colShop3"></label>
-            </div>
-
-        </div>
-
-        <a href="/shop" class="collectionShopButton">
-            <div class="button">
-                <p class="buttonsDark">boutique</p>
-            </div>
-        </a>
-    </div>
-
-    </div>
-
-</div>
-
-<div class="section-dark">
-
-    <div class="collectionAboutHeaderImg"></div>
-
-    <div class="collectionAbout__container grid-layout">
-        <h2 class="collectionAbout__subtitle subtitle">Endroits historiques</h2>
-        <p class="collectionAbout__core core">Les Ardennes belges ont toujours été un lieu de mystère et de beauté, leurs collines ondulantes et forêts denses abritant des récits aussi anciens que le temps lui-même. Voilée de brume et façonnée par le passage de l'Histoire, cette région est bien plus qu'un paysage : c'est un témoignage vivant de la résilience silencieuse de la nature. Les rivières sculptent les vallées, leurs eaux reflétant un ciel sans cesse changeant, tandis que les arbres majestueux murmurent avec le vent, porteurs des secrets du passé.
-        <br><br>
-        Parmi les forêts et les cours d'eau sinueux, les cerfs avancent en silence dans les sous-bois, les sangliers remuent les feuilles, et les rapaces planent au-dessus, veillant depuis les hauteurs. Les canards, omniprésents dans les étangs et rivières de la région, glissent paisiblement sur l'eau, leurs reflets se déformant à chaque mouvement doux.</p>
-
-        <p class="collectionAbout__core core">Qu'on parcoure ses forêts, qu'on partage un repas près du feu ou qu'on observe simplement la brume recouvrir les collines, le ressenti reste le même : Peu importe d'où l'on vient, les Ardennes ont cette capacité unique à vous faire sentir chez vous.</p>
-        <div class="collectionAbout__img"></div>
-        <h2 class="collectionAbout__subtitle subtitle">Une histoire qui mérite d'être racontée</h2>
-        <p class="collectionAbout__core core">Si les Ardennes sont connues pour les batailles qui ont marqué leur terre, elles sont aussi un lieu de chaleur, où les traditions perdurent et l'hospitalité est une seconde nature. Les petits villages aux maisons de pierre et poutres en bois invitent à ralentir, à entrer et savourer les plaisirs simples de la vie.
-        <br> <br>
-        La région regorge de délices culinaires : gibier, truite fraîche, et l'incomparable parfum des plats mijotés longuement.
-        <br>
-        Les fromages locaux, fabriqués selon des techniques ancestrales, s'accordent parfaitement avec une bière belge, brassée dans des monastères vieux de plusieurs générations..</p>
-    </div>
+    <div class="collectionHeader__title" style="background-image: url(../assets/medias/imgs/etretat__logo.svg);"></div>
 
 </div>
 
 <div class="section-light">
-    <div class="collectionDesign__container grid-layout">
-        <div class="collectionDesign__bird designBird1" style="background-image: url(../assets/img/colDes1.png);"></div>   
-        <div class="collectionDesign__bird designBird2" style="background-image: url(../assets/img/colDes2.png);"></div>    
-        <div class="collectionDesign__bird designBird3" style="background-image: url(../assets/img/birdBlack2.png);"></div>   
-        
-        <h2 class="collectionDesign__subtitle subtitle">Processus de création</h2>
-        <p class="collectionDesign__core core">Notre processus de design pour cette collection s'est inspiré de la rudesse des Ardennes belges. Nous avons adopté des contours bruts et des lignes exagérées, un style que nous avons étendu à notre typographie.</p>
-        <p class="collectionDesign__core core">Pour nos illustrations de canards, nous avons utilisé un effet de seuillage afin de réduire les images à leurs contours essentiels.
-        <br>
-        Restant fidèles à l'esthétique de la collection, nous avons ensuite retracé les dessins à la main, amplifiant les détails pour accentuer leur caractère brut et expressif.
+
+    <div class="collectionIntro__container grid-layout">
+        <h2 class="subtitle">Etretat, les falaises, c'est vraiment cool.</h2>
+        <p class="core">Nullam scelerisque semper velit, finibus porttitor justo facilisis non. Ut auctor, sem nec tincidunt malesuada, est magna vulputate nisl, egestas bibendum nibh enim non leo. Vivamus eleifend nulla at urna mattis suscipit. Mauris nisl massa, ullamcorper quis suscipit sed, feugiat vel velit. Aenean viverra</p>
+        <p class="core">Nullam scelerisque semper velit, finibus porttitor justo facilisis non. Ut auctor, sem nec tincidunt malesuada, est magna vulputate nisl, egestas bibendum nibh enim non leo. Vivamus eleifend nulla at urna mattis suscipit. Mauris nisl massa, ullamcorper quis suscipit sed, feugiat vel velit. Aenean viverra.
         <br><br>
-        Cette approche nous permet de capturer l'essence des Ardennes : sauvages, texturées, profondément immersives. Chaque élément, des graphismes aux vêtements eux-mêmes, reflète la beauté brute du paysage qui les a inspirés.</p>
+        Ut auctor, sem nec tincidunt malesuada, est magna vulputate nisl, egestas bibendum nibh enim non leo. Vivamus eleifend nulla at urna mattis suscipit. Mauris nisl</p>
+        <div class="collectionIntro__fish"></div>
     </div>
+
+    <div class="collectionGallery__container">
+        <div class="colGal__po-la">
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__tsh1__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__tsh1__mq.webp 682w,
+                    ../assets/medias/imgs/colGal__tsh1__hq.webp 1365w"
+                sizes="(min-width: 1024px) 1365px, (min-width: 768px) 682px, 100vw"
+                alt="colGal__tsh1">
+            </div>
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__cas1__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__cas1__mq.webp 1024w,
+                    ../assets/medias/imgs/colGal__cas1__hq.webp 2048w"
+                sizes="(min-width: 1024px) 2048px, (min-width: 768px) 1024px, 100vw"
+                alt="colGal__cas1">
+            </div>
+        </div>
+        <div class="colGal__four">
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__tsh2__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__tsh2__mq.webp 682w,
+                    ../assets/medias/imgs/colGal__tsh2__hq.webp 1365w"
+                sizes="(min-width: 1024px) 1365px, (min-width: 768px) 682px, 100vw"
+                alt="colGal__tsh2">
+            </div>
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__cas2__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__cas2__mq.webp 1024w,
+                    ../assets/medias/imgs/colGal__cas2__hq.webp 2048w"
+                sizes="(min-width: 1024px) 2048px, (min-width: 768px) 1024px, 100vw"
+                alt="colGal__cas2">
+            </div>
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__tsh3__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__tsh3__mq.webp 682w,
+                    ../assets/medias/imgs/colGal__tsh3__hq.webp 1365w"
+                sizes="(min-width: 1024px) 1365px, (min-width: 768px) 682px, 100vw"
+                alt="colGal__tsh3">
+            </div>
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__cas3__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__cas3__mq.webp 1024w,
+                    ../assets/medias/imgs/colGal__cas3__hq.webp 2048w"
+                sizes="(min-width: 1024px) 2048px, (min-width: 768px) 1024px, 100vw"
+                alt="colGal__cas3">
+            </div>
+        </div>
+        <div class="colGal__po-la galRev">
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__tsh4__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__tsh4__mq.webp 1024w,
+                    ../assets/medias/imgs/colGal__tsh4__hq.webp 2048w"
+                sizes="(min-width: 1024px) 2048px, (min-width: 768px) 1024px, 100vw"
+                alt="colGal__tsh4">
+            </div>
+            <div class="colGal__img">
+                <img
+                src="../assets/medias/imgs/colGal__cas4__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colGal__cas4__mq.webp 1024w,
+                    ../assets/medias/imgs/colGal__cas4__hq.webp 2048w"
+                sizes="(min-width: 1024px) 2048px, (min-width: 768px) 1024px, 100vw"
+                alt="colGal__cas4">
+            </div>
+        </div>
+    </div>
+
+    <div class="collectionShop__container grid-layout">
+
+        <h2 class="subtitle">Nos vêtements</h2>
+
+        <div class="collectionShop__content">
+
+            <a href="/shop" class="collectionShop__link">
+                <div class="collectionShop__item">
+                    <img
+                    src="../assets/medias/imgs/colShop__tsh__lq.webp"
+                    srcset="
+                        ../assets/medias/imgs/colShop__tsh__mq.webp 682w,
+                        ../assets/medias/imgs/colShop__tsh__hq.webp 1365w"
+                    sizes="(min-width: 1024px) 1365px, (min-width: 768px) 682px, 100vw"
+                    alt="colShop__tsh">
+                </div>
+                <h3 class="subtitle">T-Shirt "Poisson"</h3>
+                <p class="core">€ 55.67</p>
+            </a>
+
+            <a href="/shop" class="collectionShop__link">
+                <img
+                src="../assets/medias/imgs/colShop__cas__lq.webp"
+                srcset="
+                    ../assets/medias/imgs/colShop__cas__mq.webp 682w,
+                    ../assets/medias/imgs/colShop__cas__hq.webp 1365w"
+                sizes="(min-width: 1024px) 1365px, (min-width: 768px) 682px, 100vw"
+                alt="colShop__cas">
+                <h3 class="subtitle">Casquette MB</h3>
+                <p class="core">€ 39.99</p>
+            </a>
+
+        </div>
+
+        <a href="/shop" class="collectionShop__button">
+            <div class="button">
+                <p class="buttonsDark">boutique</p>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="section-dark">
+    <h2 class="subtitle">On travèrse une tempête! <br> Le restant arrive</h1>
 </div>
 
 {% endblock %}
