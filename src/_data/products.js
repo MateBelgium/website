@@ -12,6 +12,7 @@ function formatPrice(nbr, currency = "eur", locale = "fr-BE") {
 }
 
 async function getProducts() {
+  console.log("Fetching products from Stripe");
   try {
     const products = await stripe.products.list({
       limit: 10,
@@ -24,6 +25,7 @@ async function getProducts() {
     products.data.forEach((product) => {
       const match = product.name.match(/^(.*)\s\[(.*)\]$/);
       const baseName = match ? match[1] : product.name;
+      console.log(baseName)
       const size = match ? match[2] : null;
 
       if (!productMap.has(baseName)) {

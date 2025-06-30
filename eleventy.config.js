@@ -1,10 +1,20 @@
 // import dotenv
 import "dotenv/config";
-import products from "./src/_data/products.js"; // Use ES module import
+//import products from "./src/_data/products.js"; // Use ES module import
+import slugify from "slugify";
 
 export default async function (eleventyConfig) {
   // create a collection for products
-  /*eleventyConfig.addGlobalData("products", products);*/
+  //eleventyConfig.addGlobalData("products", products);
+
+  // Add slug filter to slugify product names for URLs
+  eleventyConfig.addFilter("slug", (str) => {
+    if (!str) return "";
+    return slugify(str, {
+      lower: true,
+      strict: true, // remove special chars
+    });
+  });
 
   // avoid processing and watching files
   eleventyConfig.ignores.add("./src/assets/**/*");

@@ -3,7 +3,7 @@ pagination:
   data: products
   size: 1
   alias: product
-permalink: "/products/{{ product.name }}/index.html"
+permalink: "/products/{{ product.name | slug }}/index.html"
 ---
 
 {% extends "layouts/base.njk" %}
