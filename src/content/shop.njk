@@ -10,7 +10,7 @@ permalink: shop.html
 
   <div class="section-light">
 
-    <!--
+
     {% for item in products %}
       {% if loop.first %}<ul class="shop__list">{% endif %}
         <li class="shop__item">
@@ -26,15 +26,12 @@ permalink: shop.html
         </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
-    -->
-    <!--
-    CART
+
     <div
     x-data="shop" 
     x-effect="syncCart"
     class="grid-layout">
 
-      Show Cart
       <button
         class="cart__Button"
         x-cloak 
@@ -43,7 +40,6 @@ permalink: shop.html
         <span x-text="totalProducts" class="cart__number"></span>
       </button>
 
-      CART
       <dialog data-cart class="cart__dialog">
         <div class="cart__container">
 
@@ -115,8 +111,8 @@ permalink: shop.html
       </dialog>
 
     </div>
-    -->
   
+    <!--
 
     <div style="display: flex; flex-direction: column; align-items: center; width: fit-content; margin-inline: auto;">
       <h1 class="title">Etretat</h1>
@@ -131,6 +127,8 @@ permalink: shop.html
     <div style="display:  flex; flex-direction: column; width: 100%; align-items: center;">
       <p>Checkout our instagram : <a href="https://www.instagram.com/matebelgium?igsh=MTl6bmV6dGs4NG01ZQ==">@matebelgium</a></p>
     </div>
+
+    -->
 
   </div>
 
