@@ -15,6 +15,7 @@ async function getProducts() {
   try {
     const products = await stripe.products.list({
       limit: 10,
+      active: true,
       expand: ["data.default_price"],
     });
 
