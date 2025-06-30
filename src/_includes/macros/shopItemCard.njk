@@ -9,7 +9,8 @@
           height="60"
           class="shopItem__img">
 
-          <a class="shopItem__link" href="/products/{{params.name}}/index.html">view this product</a>
+          <a class="shopItem__link" href="/products/{{ params.name | slug }}/index.html">voir ce produit</a>
+
 
         </div>
         {% endif %}
