@@ -32,7 +32,7 @@ permalink: "/products/{{ product.name | slug }}/index.html"
       class="product__img" 
       style="background-image: url('{{ product.image }}');"
       >
-      <a class="backToShop" href="/shop.html"> <<< back to shop</a>
+      <a class="backToShop" href="/shop.html"> <<< retour au shop</a>
     </div>
 
     <div 
@@ -42,13 +42,12 @@ permalink: "/products/{{ product.name | slug }}/index.html"
     </div>
 
     <div class="about textblock">
-      <h2 class="about__subtitle">About it</h2>
-      <p class="core about__text">This T-shirt features a bold back design, an embroidered cross on the chest, and a stylized collar label. Designed for a wide fit, it offers a relaxed and modern silhouette. <br> <br>
-      The model in the photo is 190 cm tall and wears a size L.</p>
+      <h2 class="about__subtitle">A propos</h2>
+      <p class="core about__text">Vêtement issu de la collection Été-Automne Etretat de MateBelgium, fabriqué au Portugal en 100 % coton biologique. Une pièce de qualité, confortable et respectueuse de l’environnement.</p>
     </div>
 
     <div class="product__buy">
-      <h2 class="subtitle">Buy this item</h2> <br> <br>
+      <h2 class="subtitle">Acheter</h2> <br> <br>
       {% for item in product.sizes %}
         {% if loop.first %}<ul class="buy__sizes">{% endif %}
           <li class="buy__item">
@@ -66,7 +65,7 @@ permalink: "/products/{{ product.name | slug }}/index.html"
                 {{item.size}}
             </button>
             {% if item.quantityLeft <= 0 %}
-              <p class="product__price" style="color: red;">unavailable</p>
+              <p class="product__price" style="color: red;">out of stock</p>
               {% else %}
               <p class="product__price">{{item.priceDisplay}}</p>
             {% endif %}
@@ -76,21 +75,20 @@ permalink: "/products/{{ product.name | slug }}/index.html"
     </div>
 
     <div class="info textblock">
-      <h2 class="info__subtitle">Product info</h2>
+      <h2 class="info__subtitle">Infos Produit</h2>
       <p class="core info__text">
-        Composition: 100% organic cotton <br>
-        Ring compact spun, long staple <br>
-        Weight: 200g/m2</p>
+        Composition: 100% cotton biologique <br>
+        Made in Portugal <br>
+        Qualité suppérieur</p>
     </div>
 
-    <div class="wash textblock">
-      <h2 class="wash__subtitle">Washing info</h2>
-      <p class="core wash__text">Machine wash cold (30°C) with similar colors.</p>
+    <div class="wash textblock">Info de lavage</h2>
+      <p class="core wash__text">Lavage en machine à froid (30°C) avec des couleurs similaires.</p>
     </div>
 
     <div class="shipping textblock">
       <h2 class="shipping__subtitle">Shipping info</h2>
-      <p class="core shipping__text">Your order will be shipped within two weeks of purchase.</p>
+      <p class="core shipping__text">Votre commande sera expédiée dans les deux semaines suivant l’achat.</p>
     </div>
 
     <!--CART-->
