@@ -55,8 +55,9 @@ async function createCheckout(request, context) {
       mode: "payment",
       currency: "eur",
       shipping_address_collection: {
-        allowed_countries: ["BE"],
+        allowed_countries: ["BE", "FR"],
       },
+      shipping_options: "shr_1RfwqGKz5gaet3BQl6cF9QnC",
       success_url: `${siteUrl}/success/`,
       cancel_url: `${siteUrl}/`,
     });
