@@ -5,7 +5,7 @@ import slugify from "slugify";
 
 export default async function (eleventyConfig) {
   // create a collection for products
-  //eleventyConfig.addGlobalData("products", products);
+  //eleventyConfig.addGlobalData("products", products); //fix push
 
   // Add slug filter to slugify product names for URLs
   eleventyConfig.addFilter("slug", (str) => {
