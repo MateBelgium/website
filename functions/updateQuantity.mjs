@@ -1,28 +1,30 @@
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-async function updateQuantity(request, context) {
+export async function handler(event, context) {
+  try {
+    const data = JSON.parse(event.body);
 
-    try {
+    for (let i = 0; i < data.length; i++) {
+      const el = data[i];
+      const productStock = await stripe.products.retrieve(el.productId);
+      const currentQuantity = parseInt(productStock.metadata.quantity || 0, 10);
+      const newQuantity = Math.max(currentQuantity - el.quantity, 0);
 
-        let data = await request.json();
-
-        for (let i = 0; i < data.length; i++) {
-
-            const el = data[i]
-            const productStock = await stripe.products.retrieve(el.productId)
-
-            await stripe.products.update(el.productId, {
-                metadata: { quantity: (productStock.metadata.quantity - el.quantity) >= 0 ? productStock.metadata.quantity - el.quantity : 0}
-            });          
-        }
-      return;
-    } catch (err) {
-      console.error("Error updating collection:", err);
-      throw new Error(err);
+      await stripe.products.update(el.productId, {
+        metadata: { quantity: newQuantity.toString() },
+      });
     }
 
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true }),
+    };
+  } catch (err) {
+    console.error("Error updating collection:", err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Update failed" }),
+    };
   }
-  
-  export default updateQuantity;
-  
+}
